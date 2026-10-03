@@ -433,7 +433,7 @@ def home():
 </div></section>
 
 <section class="section" id="sobre"><div class="container split">
-  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="{placeholder('Equipe', 1000, 800)}" alt="Equipe da clínica" width="1000" height="800"></div>
+  <div class="img-wrap img-wrap--video reveal reveal--clip"><video data-parallax="0.08" data-autoplay src="/assets/video/sobre-clinica.mp4" poster="/assets/video/sobre-clinica.jpg" muted autoplay loop playsinline preload="metadata" aria-label="Conheça a Clínica Stringhetta" width="720" height="960"></video></div>
   <div class="reveal">
     <span class="eyebrow">A clínica</span>
     <h2>Conheça nossa clínica!</h2>

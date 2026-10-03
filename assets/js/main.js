@@ -303,3 +303,17 @@ document.querySelectorAll(".reels-section").forEach((section) => {
     }
   });
 });
+
+// Vídeos decorativos: sempre mudos, tocam sozinhos quando visíveis
+const autoVideos = document.querySelectorAll("video[data-autoplay]");
+if (autoVideos.length) {
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      v.muted = true;
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+  }, { threshold: 0.2 });
+  autoVideos.forEach((v) => { v.muted = true; vio.observe(v); });
+}

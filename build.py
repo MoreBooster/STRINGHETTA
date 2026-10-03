@@ -130,6 +130,7 @@ PROCEDURES = [
     },
     {
         "slug": "lentes-em-resina-estratificada", "title": "Lentes em resina estratificada", "category": "odonto", "icon": "◎",
+        "image": "/assets/img/lentes-em-resina-estratificada.jpg", "image_alt": "Sorriso de paciente com lentes em resina estratificada",
         "short": "Facetas em resina aplicadas em camadas para corrigir cor, formato e proporção do sorriso.",
         "intro": "A técnica estratificada aplica a resina em camadas, reproduzindo a translucidez do dente natural. O resultado é um sorriso mais harmônico, em poucas sessões e sem desgastes agressivos.",
         "benefits": ["Planejamento estético do sorriso", "Mínimo ou nenhum desgaste dental",

@@ -32,12 +32,13 @@
   </ul></nav>
   </div>
 </div></header>
+<div class="scroll-progress" aria-hidden="true"></div>
 <main>
 
 <section class="hero">
   <div class="hero-rays" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <div class="hero-copy reveal">
+    <div class="hero-copy" data-hero-copy>
       <span class="hero-kicker">+10.000 autoestimas renovadas</span>
       <h1>Realce a sua <br>beleza natural</h1>
       <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
@@ -47,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div class="container hero-strip">
+  <div class="container hero-strip" data-hero-strip>
     <div class="strip-card strip-card--photo reveal"><img src="/assets/img/paciente.svg" alt="Paciente da clínica" width="600" height="600"></div>
     <div class="strip-card strip-card--quote reveal">
       <span class="quote-mark">“</span>
@@ -66,17 +67,19 @@
   </div>
 </section>
 
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Botox</span><i>✳</i><span>Preenchimento labial</span><i>✳</i><span>Ulthera</span><i>✳</i><span>Laser Lavieen</span><i>✳</i><span>Harmonização de glúteos</span><i>✳</i><span>Harmonização facial</span><i>✳</i><span>Ultraformer</span><i>✳</i><span>Bioestimulador de colágeno</span><i>✳</i><span>Implante dentário</span><i>✳</i><span>Prótese dentária</span><i>✳</i><span>Clareamento dental</span><i>✳</i><span>Lentes em resina estratificada</span><i>✳</i><span>Ortodontia e alinhadores</span><i>✳</i><span>Nutricionista</span><i>✳</i><span>Botox</span><i>✳</i><span>Preenchimento labial</span><i>✳</i><span>Ulthera</span><i>✳</i><span>Laser Lavieen</span><i>✳</i><span>Harmonização de glúteos</span><i>✳</i><span>Harmonização facial</span><i>✳</i><span>Ultraformer</span><i>✳</i><span>Bioestimulador de colágeno</span><i>✳</i><span>Implante dentário</span><i>✳</i><span>Prótese dentária</span><i>✳</i><span>Clareamento dental</span><i>✳</i><span>Lentes em resina estratificada</span><i>✳</i><span>Ortodontia e alinhadores</span><i>✳</i><span>Nutricionista</span><i>✳</i><span>Botox</span><i>✳</i><span>Preenchimento labial</span><i>✳</i><span>Ulthera</span><i>✳</i><span>Laser Lavieen</span><i>✳</i><span>Harmonização de glúteos</span><i>✳</i><span>Harmonização facial</span><i>✳</i><span>Ultraformer</span><i>✳</i><span>Bioestimulador de colágeno</span><i>✳</i><span>Implante dentário</span><i>✳</i><span>Prótese dentária</span><i>✳</i><span>Clareamento dental</span><i>✳</i><span>Lentes em resina estratificada</span><i>✳</i><span>Ortodontia e alinhadores</span><i>✳</i><span>Nutricionista</span><i>✳</i></div></div>
+
 <section class="section section--brand"><div class="container">
   <div class="stats">
-    <div class="stat reveal"><strong>+10 mil</strong><span>pacientes atendidos</span></div>
-    <div class="stat reveal"><strong>+30</strong><span>procedimentos</span></div>
-    <div class="stat reveal"><strong>2</strong><span>unidades em São Paulo</span></div>
-    <div class="stat reveal"><strong>5.0</strong><span>nota no Google</span></div>
+    <div class="stat reveal"><strong data-count="10" data-prefix="+" data-suffix=" mil">+10 mil</strong><span>pacientes atendidos</span></div>
+    <div class="stat reveal"><strong data-count="30" data-prefix="+">+30</strong><span>procedimentos</span></div>
+    <div class="stat reveal"><strong data-count="2">2</strong><span>unidades em São Paulo</span></div>
+    <div class="stat reveal"><strong data-count="5" data-decimals="1">5.0</strong><span>nota no Google</span></div>
   </div>
 </div></section>
 
 <section class="section" id="sobre"><div class="container split">
-  <img class="reveal" src="/assets/img/equipe.svg" alt="Equipe da clínica" width="1000" height="800">
+  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="/assets/img/equipe.svg" alt="Equipe da clínica" width="1000" height="800"></div>
   <div class="reveal">
     <span class="eyebrow">A clínica</span>
     <h2>Conheça nossa clínica!</h2>
@@ -89,6 +92,11 @@
     </ul>
     <a class="btn btn--primary" href="https://wa.me/5511933537351?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero conhecer</a>
   </div>
+</div></section>
+
+<section class="manifesto"><div class="container">
+  <span class="manifesto-mark" data-spin aria-hidden="true">✳</span>
+  <p class="scrub-text">Acreditamos que a beleza mais bonita é a que já existe em você. Nosso trabalho é revelar, com técnica, delicadeza e cuidado em cada detalhe.</p>
 </div></section>
 
 <section class="section section--alt"><div class="container">
@@ -136,6 +144,7 @@
 
 <section class="section"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Como funciona</span><h2>Sua jornada na Stringhetta</h2></div>
+  <div class="steps-line" aria-hidden="true"><span></span></div>
   <div class="grid grid-3 steps">
     <div class="step reveal"><h3>Avaliação</h3><p>Conversamos sobre seus objetivos e fazemos uma análise completa.</p></div>
     <div class="step reveal"><h3>Planejamento</h3><p>Montamos um plano sob medida, com prazos e valores claros.</p></div>
@@ -180,6 +189,7 @@
   </div>
 </div></div>
 </div></section>
+<div class="marquee marquee--reverse" aria-hidden="true"><div class="marquee-track"><span>Realce a sua beleza natural</span><i>✳</i><span>Tatuapé</span><i>✳</i><span>Moema</span><i>✳</i><span>+10.000 autoestimas renovadas</span><i>✳</i><span>Realce a sua beleza natural</span><i>✳</i><span>Tatuapé</span><i>✳</i><span>Moema</span><i>✳</i><span>+10.000 autoestimas renovadas</span><i>✳</i><span>Realce a sua beleza natural</span><i>✳</i><span>Tatuapé</span><i>✳</i><span>Moema</span><i>✳</i><span>+10.000 autoestimas renovadas</span><i>✳</i></div></div>
 <section class="section section--cta"><div class="container reveal">
   <h2>Fale com um especialista</h2>
   <p>Converse com nossa equipe pelo WhatsApp e encontre o tratamento ideal para você.</p>

@@ -271,6 +271,7 @@ def page(title, description, body, current=""):
 </head>
 <body>
 {nav(current)}
+<div class="scroll-progress" aria-hidden="true"></div>
 <main>
 {body}
 </main>
@@ -329,13 +330,19 @@ def testimonials_section():
 </div></section>"""
 
 
+def marquee(items, reverse=False):
+    row = "".join(f"<span>{escape(t)}</span><i>✳</i>" for t in items)
+    cls = " marquee--reverse" if reverse else ""
+    return f'''<div class="marquee{cls}" aria-hidden="true"><div class="marquee-track">{row}{row}{row}</div></div>'''
+
+
 def home():
     featured = "".join(card(p) for p in PROCEDURES if p['slug'] in FEATURED)
     body = f"""
 <section class="hero">
   <div class="hero-rays" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <div class="hero-copy reveal">
+    <div class="hero-copy" data-hero-copy>
       <span class="hero-kicker">+10.000 autoestimas renovadas</span>
       <h1>Realce a sua <br>beleza natural</h1>
       <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
@@ -345,7 +352,7 @@ def home():
       </div>
     </div>
   </div>
-  <div class="container hero-strip">
+  <div class="container hero-strip" data-hero-strip>
     <div class="strip-card strip-card--photo reveal"><img src="{placeholder('Paciente', 600, 600)}" alt="Paciente da clínica" width="600" height="600"></div>
     <div class="strip-card strip-card--quote reveal">
       <span class="quote-mark">“</span>
@@ -364,17 +371,19 @@ def home():
   </div>
 </section>
 
+{marquee([p["title"] for p in PROCEDURES])}
+
 <section class="section section--brand"><div class="container">
   <div class="stats">
-    <div class="stat reveal"><strong>+10 mil</strong><span>pacientes atendidos</span></div>
-    <div class="stat reveal"><strong>+30</strong><span>procedimentos</span></div>
-    <div class="stat reveal"><strong>2</strong><span>unidades em São Paulo</span></div>
-    <div class="stat reveal"><strong>5.0</strong><span>nota no Google</span></div>
+    <div class="stat reveal"><strong data-count="10" data-prefix="+" data-suffix=" mil">+10 mil</strong><span>pacientes atendidos</span></div>
+    <div class="stat reveal"><strong data-count="30" data-prefix="+">+30</strong><span>procedimentos</span></div>
+    <div class="stat reveal"><strong data-count="2">2</strong><span>unidades em São Paulo</span></div>
+    <div class="stat reveal"><strong data-count="5" data-decimals="1">5.0</strong><span>nota no Google</span></div>
   </div>
 </div></section>
 
 <section class="section" id="sobre"><div class="container split">
-  <img class="reveal" src="{placeholder('Equipe', 1000, 800)}" alt="Equipe da clínica" width="1000" height="800">
+  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="{placeholder('Equipe', 1000, 800)}" alt="Equipe da clínica" width="1000" height="800"></div>
   <div class="reveal">
     <span class="eyebrow">A clínica</span>
     <h2>Conheça nossa clínica!</h2>
@@ -389,6 +398,11 @@ def home():
   </div>
 </div></section>
 
+<section class="manifesto"><div class="container">
+  <span class="manifesto-mark" data-spin aria-hidden="true">✳</span>
+  <p class="scrub-text">Acreditamos que a beleza mais bonita é a que já existe em você. Nosso trabalho é revelar, com técnica, delicadeza e cuidado em cada detalhe.</p>
+</div></section>
+
 <section class="section section--alt"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Procedimentos</span><h2>Conheça alguns procedimentos</h2>
   <p>Mais de 30 procedimentos em odontologia, estética e saúde.</p></div>
@@ -398,6 +412,7 @@ def home():
 
 <section class="section"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Como funciona</span><h2>Sua jornada na Stringhetta</h2></div>
+  <div class="steps-line" aria-hidden="true"><span></span></div>
   <div class="grid grid-3 steps">
     <div class="step reveal"><h3>Avaliação</h3><p>Conversamos sobre seus objetivos e fazemos uma análise completa.</p></div>
     <div class="step reveal"><h3>Planejamento</h3><p>Montamos um plano sob medida, com prazos e valores claros.</p></div>
@@ -413,6 +428,7 @@ def home():
   <a class="btn btn--primary" href="{CONFIG['instagram']}" target="_blank" rel="noopener">Seguir @{CONFIG['instagram_user']}</a>
 </div></section>
 {units_section()}
+{marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+10.000 autoestimas renovadas"], reverse=True)}
 {cta_section("Fale com um especialista")}
 """
     return page(CONFIG["name"], "Clínica de odontologia e estética no Tatuapé (Anália Franco) e em Moema, São Paulo. Botox, harmonização, implantes, clareamento e mais.", body, "home")
@@ -425,7 +441,7 @@ def procedures_index():
         sections += f"""<div style="margin-bottom:56px"><h2 class="reveal" style="font-size:1.8rem">{label}</h2>
   <div class="grid grid-3">{cards}</div></div>"""
     body = f"""
-<section class="page-hero"><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Procedimentos</div>
   <h1>Procedimentos</h1>
   <p>Conheça os tratamentos de odontologia, estética e saúde disponíveis nas nossas unidades.</p>
@@ -442,7 +458,7 @@ def procedure_page(p):
     related = "".join(card(r) for r in [r for r in PROCEDURES if r["category"] == p["category"] and r is not p][:3])
     msg = p.get("wa", f"Olá! Gostaria de saber mais sobre {p['title']}.")
     body = f"""
-<section class="page-hero"><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / <a href="/procedimentos/">Procedimentos</a> / {escape(p['title'])}</div>
   <span class="eyebrow">{CATEGORIES[p['category']]}</span>
   <h1>{escape(p['title'])}</h1>
@@ -451,7 +467,7 @@ def procedure_page(p):
 </div></section>
 
 <section class="section"><div class="container split">
-  <img class="reveal" src="{placeholder(p['title'], 1000, 800)}" alt="{escape(p['title'])}" width="1000" height="800">
+  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="{placeholder(p['title'], 1000, 800)}" alt="{escape(p['title'])}" width="1000" height="800"></div>
   <div class="reveal">
     <span class="eyebrow">Sobre o tratamento</span>
     <h2>O que é {escape(p['title'].lower())}?</h2>
@@ -483,7 +499,7 @@ def contact():
     options = "".join(f"<option>{escape(p['title'])}</option>" for p in PROCEDURES)
     units = "".join(f"<option>{escape(u['name'])}</option>" for u in CONFIG["units"])
     body = f"""
-<section class="page-hero"><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Contato</div>
   <h1>Fale com a gente</h1>
   <p>Agende sua avaliação ou tire suas dúvidas. Respondemos rapidinho!</p>

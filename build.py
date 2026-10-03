@@ -187,11 +187,20 @@ def placeholder(label, w=800, h=1000):
     path.write_text(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}">'
         f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
-        f'<stop offset="0" stop-color="#e9dcc8"/><stop offset="1" stop-color="#c9d8d6"/></linearGradient></defs>'
+        f'<stop offset="0" stop-color="#efe3cc"/><stop offset="1" stop-color="#c9a464"/></linearGradient></defs>'
         f'<rect width="100%" height="100%" fill="url(#g)"/>'
-        f'<text x="50%" y="50%" text-anchor="middle" font-family="Georgia,serif" font-size="{w//18}" fill="#1f4d4a" opacity=".55">{escape(label)}</text>'
+        f'<text x="50%" y="50%" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="300" font-size="{w//18}" fill="#5a4626" opacity=".6">{escape(label)}</text>'
         f'</svg>', encoding="utf-8")
     return f"/assets/img/{name}.svg"
+
+
+def socials():
+    ig = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>'
+    fb = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21z"/></svg>'
+    wa = WHATS_ICON
+    return (f'<a href="{CONFIG["instagram"]}" target="_blank" rel="noopener" aria-label="Instagram">{ig}</a>'
+            f'<a href="{CONFIG["facebook"]}" target="_blank" rel="noopener" aria-label="Facebook">{fb}</a>'
+            f'<a href="{wa_link()}" target="_blank" rel="noopener" aria-label="WhatsApp">{wa}</a>')
 
 
 def nav(current):
@@ -199,21 +208,20 @@ def nav(current):
         return ' aria-current="page"' if current == key else ""
     sub = "".join(f'<li><a href="/{p["slug"]}/">{escape(p["title"])}</a></li>' for p in PROCEDURES)
     return f"""
-<div class="topbar"><div class="container">
-  <span>📍 Tatuapé · Moema – São Paulo</span>
-  <span>{escape(CONFIG['hours'])} · <a href="tel:+{CONFIG['whatsapp']}">{CONFIG['phone']}</a></span>
-</div></div>
-<header class="header"><div class="container">
-  <a href="/" class="logo" aria-label="{CONFIG['name']} – início">Stringhetta <span>clínica</span></a>
+<header class="header{' header--overlay' if current == 'home' else ''}"><div class="container">
+  <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-mark">✳</span><span class="logo-text">Clínica<br>Stringhetta</span></a>
   <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <div class="header-right">
+  <div class="social social--header">{socials()}</div>
   <nav class="nav" aria-label="Principal"><ul>
     <li><a href="/"{cur('home')}>Início</a></li>
     <li><a href="/#sobre">A clínica</a></li>
-    <li class="has-sub"><a href="/procedimentos/"{cur('procedimentos')}>Procedimentos ▾</a><ul class="submenu">{sub}</ul></li>
+    <li class="has-sub"><a href="/procedimentos/"{cur('procedimentos')}>Procedimentos</a><ul class="submenu">{sub}</ul></li>
     <li><a href="/#unidades">Unidades</a></li>
     <li><a href="/contato/"{cur('contato')}>Contato</a></li>
-    <li><a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Agendar avaliação</a></li>
+    <li><a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Agende ↗</a></li>
   </ul></nav>
+  </div>
 </div></header>"""
 
 
@@ -225,13 +233,9 @@ def footer():
 <footer class="footer"><div class="container">
   <div class="footer-grid">
     <div>
-      <a href="/" class="logo">Stringhetta <span>clínica</span></a>
+      <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-mark">✳</span><span class="logo-text">Clínica<br>Stringhetta</span></a>
       <p style="margin-top:14px">Odontologia e estética com atendimento humanizado, tecnologia e resultados naturais.</p>
-      <div class="social">
-        <a href="{CONFIG['instagram']}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-        <a href="{CONFIG['facebook']}" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-        <a href="{wa_link()}" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-      </div>
+      <div class="social">{socials()}</div>
     </div>
     <div><h4>Estética</h4><ul>{estetica}</ul></div>
     <div><h4>Odonto e saúde</h4><ul>{odonto}</ul></div>
@@ -258,11 +262,11 @@ def page(title, description, body, current=""):
 <meta property="og:title" content="{escape(full_title)}">
 <meta property="og:description" content="{escape(description)}">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1f4d4a">
+<meta name="theme-color" content="#c9a464">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -297,7 +301,7 @@ def units_section():
     <p>{escape(u['address'])}</p>
     <p>{escape(u['city'])}</p>
     <p>{escape(CONFIG['hours'])}</p>
-    <a class="btn btn--outline" style="margin-top:12px;color:var(--brand)" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar</a>
+    <a class="btn btn--outline" style="margin-top:12px" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar</a>
   </div>
 </div>"""
     return f"""<section class="section" id="unidades"><div class="container">
@@ -308,7 +312,7 @@ def units_section():
 
 
 def cta_section(text="Agende sua avaliação"):
-    return f"""<section class="section section--brand cta"><div class="container reveal">
+    return f"""<section class="section section--cta"><div class="container reveal">
   <h2>{escape(text)}</h2>
   <p>Converse com nossa equipe pelo WhatsApp e encontre o tratamento ideal para você.</p>
   <a class="btn btn--whats" href="{wa_link()}" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -328,18 +332,37 @@ def testimonials_section():
 def home():
     featured = "".join(card(p) for p in PROCEDURES if p['slug'] in FEATURED)
     body = f"""
-<section class="hero"><div class="container">
-  <div class="reveal">
-    <div class="hero-badge"><b>+10.000</b> autoestimas renovadas</div>
-    <h1>Realce a sua beleza natural</h1>
-    <p class="lead">Odontologia e estética facial com planejamento individual, tecnologia de ponta e resultados naturais, no Tatuapé e em Moema.</p>
-    <div class="hero-actions">
-      <a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Fale com um especialista</a>
-      <a class="btn btn--outline" style="color:var(--brand)" href="/procedimentos/">Ver procedimentos</a>
+<section class="hero">
+  <div class="hero-rays" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <span class="hero-kicker">+10.000 autoestimas renovadas</span>
+      <h1>Realce a sua <br>beleza natural</h1>
+      <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Fale com um especialista ↗</a>
+        <a class="btn btn--ghost" href="/procedimentos/">Procedimentos</a>
+      </div>
     </div>
   </div>
-  <div class="hero-visual reveal"><img src="{placeholder('Foto principal')}" alt="Ambiente da Clínica Stringhetta" width="800" height="1000"></div>
-</div></section>
+  <div class="container hero-strip">
+    <div class="strip-card strip-card--photo reveal"><img src="{placeholder('Paciente', 600, 600)}" alt="Paciente da clínica" width="600" height="600"></div>
+    <div class="strip-card strip-card--quote reveal">
+      <span class="quote-mark">“</span>
+      <p>Nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado que você merece.</p>
+    </div>
+    <a class="strip-card strip-card--image reveal" href="/procedimentos/">
+      <img src="{placeholder('Procedimentos', 600, 600)}" alt="Procedimentos" width="600" height="600">
+      <span class="strip-label">+30 procedimentos ↗</span>
+    </a>
+    <div class="strip-card strip-card--light reveal">
+      <h3>Avaliação personalizada</h3>
+      <p>Tatuapé · Moema</p>
+      <a class="link-arrow" href="{wa_link()}" target="_blank" rel="noopener">Agendar ↗</a>
+      <span class="strip-mark" aria-hidden="true">✳</span>
+    </div>
+  </div>
+</section>
 
 <section class="section section--brand"><div class="container">
   <div class="stats">
@@ -370,7 +393,7 @@ def home():
   <div class="section-head reveal"><span class="eyebrow">Procedimentos</span><h2>Conheça alguns procedimentos</h2>
   <p>Mais de 30 procedimentos em odontologia, estética e saúde.</p></div>
   <div class="grid grid-3">{featured}</div>
-  <p style="text-align:center;margin-top:40px"><a class="btn btn--outline" style="color:var(--brand)" href="/procedimentos/">Ver todos os procedimentos</a></p>
+  <p style="text-align:center;margin-top:40px"><a class="btn btn--outline" href="/procedimentos/">Ver todos os procedimentos ↗</a></p>
 </div></section>
 
 <section class="section"><div class="container">
@@ -383,10 +406,10 @@ def home():
 </div></section>
 
 {testimonials_section()}
-<section class="section"><div class="container cta reveal" style="text-align:center">
+<section class="section"><div class="container center reveal">
   <span class="eyebrow">Instagram</span>
-  <h2 style="color:var(--ink)">Acompanhe a clínica no Instagram</h2>
-  <p style="color:var(--muted)">Bastidores, resultados e novidades em @{CONFIG['instagram_user']}.</p>
+  <h2>Acompanhe a clínica no Instagram</h2>
+  <p>Bastidores, resultados e novidades em @{CONFIG['instagram_user']}.</p>
   <a class="btn btn--primary" href="{CONFIG['instagram']}" target="_blank" rel="noopener">Seguir @{CONFIG['instagram_user']}</a>
 </div></section>
 {units_section()}
@@ -513,8 +536,8 @@ def write(rel, content):
 def main():
     (ROOT / "assets" / "img").mkdir(parents=True, exist_ok=True)
     (ROOT / "assets" / "img" / "favicon.svg").write_text(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#1f4d4a"/>'
-        '<text x="32" y="43" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#b8925a">S</text></svg>',
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#c9a464"/>'
+        '<text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" fill="#fbf6ec">S</text></svg>',
         encoding="utf-8")
     write("index.html", home())
     write("procedimentos/index.html", procedures_index())

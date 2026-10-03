@@ -24,7 +24,13 @@ sitemap.xml, robots.txt, 404.html
 2. Rode `python3 build.py` para regerar as páginas.
 3. Teste localmente: `python3 -m http.server 8080` e abra http://localhost:8080
 
+## Visual
+
+Paleta creme e dourado, com variáveis no topo de `assets/css/style.css`, e fonte sem serifa Manrope.
+
 ## Imagens
+
+- **Foto do hero:** salve como `assets/img/hero.jpg` (paisagem, cerca de 2400×1400). Ela aparece automaticamente com uma sobreposição dourada; sem ela, fica o degradê dourado.
 
 As imagens em `assets/img/*.svg` são provisórias. Substitua pelas fotos reais (de preferência `.webp`)
 mantendo o mesmo nome, ou altere o caminho na função `placeholder()` do `build.py`.

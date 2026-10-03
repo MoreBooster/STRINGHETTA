@@ -173,6 +173,14 @@ TESTIMONIALS = [
     ("Clínica maravilhosa, meninas atenciosas. Feliz em conhecer vocês!", "Priscila Raposo Vieira"),
 ]
 
+# Vídeos do Instagram (assets/video/). Adicione mais itens para ampliar o carrossel.
+VIDEOS = [
+    {"file": "video-1", "label": "Paciente vendo o resultado no espelho"},
+    {"file": "video-2", "label": "Consulta de avaliação na clínica"},
+    {"file": "video-3", "label": "Te recebendo, te escutando, te realçando"},
+    {"file": "video-4", "label": "Paciente após o procedimento"},
+]
+
 WHATS_ICON = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.4L3 29l7.2-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.7 12.7-12.6C28.7 8.6 23 3 16 3zm0 23.2c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.5C5.2 9.8 10 5.1 16 5.1s10.8 4.7 10.8 10.5S22 26.2 16 26.2zm5.9-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.2 1.4 3.4 2.4 3.6 5.7 5c2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4z"/></svg>'
 
 
@@ -336,6 +344,40 @@ def marquee(items, reverse=False):
     return f'''<div class="marquee{cls}" aria-hidden="true"><div class="marquee-track">{row}{row}{row}</div></div>'''
 
 
+def videos_section():
+    sound_icon = ('<svg class="i-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>'
+                  '<path d="M16 9l5 5M21 9l-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
+                  '<svg class="i-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>'
+                  '<path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>')
+    reels = "".join(f"""<figure class="reel">
+      <video src="/assets/video/{v['file']}.mp4" poster="/assets/video/{v['file']}.jpg" muted loop playsinline autoplay preload="metadata" aria-label="{escape(v['label'])}"></video>
+      <button class="reel-toggle" type="button" aria-label="Assistir com som: {escape(v['label'])}" aria-pressed="false">
+        <span class="reel-hint">Toque para ouvir</span>
+        <span class="reel-sound">{sound_icon}</span>
+      </button>
+      <span class="reel-progress" aria-hidden="true"><span></span></span>
+    </figure>""" for v in VIDEOS)
+    dots = "".join(f'<button type="button" aria-label="Ir para o vídeo {i + 1}"></button>' for i in range(len(VIDEOS)))
+    return f"""<section class="section reels-section" id="videos"><div class="container">
+  <div class="reels-head reveal">
+    <div>
+      <span class="eyebrow">Instagram</span>
+      <h2>A clínica em movimento</h2>
+      <p>Bastidores, acolhimento e resultados reais. Toque em um vídeo para assistir com som.</p>
+    </div>
+    <div class="reels-controls">
+      <button class="reels-arrow" type="button" data-dir="-1" aria-label="Vídeo anterior">←</button>
+      <button class="reels-arrow" type="button" data-dir="1" aria-label="Próximo vídeo">→</button>
+    </div>
+  </div>
+  <div class="reels-track reveal" tabindex="0" aria-label="Vídeos do Instagram da clínica">{reels}</div>
+  <div class="reels-footer">
+    <div class="reels-dots">{dots}</div>
+    <a class="btn btn--primary" href="{CONFIG['instagram']}" target="_blank" rel="noopener">Seguir @{CONFIG['instagram_user']} ↗</a>
+  </div>
+</div></section>"""
+
+
 def home():
     featured = "".join(card(p) for p in PROCEDURES if p['slug'] in FEATURED)
     body = f"""
@@ -421,12 +463,7 @@ def home():
 </div></section>
 
 {testimonials_section()}
-<section class="section"><div class="container center reveal">
-  <span class="eyebrow">Instagram</span>
-  <h2>Acompanhe a clínica no Instagram</h2>
-  <p>Bastidores, resultados e novidades em @{CONFIG['instagram_user']}.</p>
-  <a class="btn btn--primary" href="{CONFIG['instagram']}" target="_blank" rel="noopener">Seguir @{CONFIG['instagram_user']}</a>
-</div></section>
+{videos_section()}
 {units_section()}
 {marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+10.000 autoestimas renovadas"], reverse=True)}
 {cta_section("Fale com um especialista")}

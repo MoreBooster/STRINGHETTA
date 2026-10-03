@@ -217,3 +217,89 @@ document.querySelectorAll("form[data-whatsapp]").forEach((form) => {
 
 // Ano no rodapé
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+
+// Carrossel de vídeos: todos tocam sem som; o som só liga no vídeo que o usuário tocar
+document.querySelectorAll(".reels-section").forEach((section) => {
+  const track = section.querySelector(".reels-track");
+  const reels = [...section.querySelectorAll(".reel")];
+  const dots = [...section.querySelectorAll(".reels-dots button")];
+  const arrows = [...section.querySelectorAll(".reels-arrow")];
+  let active = null;
+
+  const setMuted = (reel, muted) => {
+    const video = reel.querySelector("video");
+    video.muted = muted;
+    reel.classList.toggle("is-playing", !muted);
+    reel.querySelector(".reel-toggle").setAttribute("aria-pressed", String(!muted));
+    if (!muted) active = reel;
+    else if (active === reel) active = null;
+  };
+
+  reels.forEach((reel) => {
+    const video = reel.querySelector("video");
+    const bar = reel.querySelector(".reel-progress span");
+    video.muted = true;
+    video.addEventListener("timeupdate", () => {
+      if (video.duration) bar.style.transform = `scaleX(${video.currentTime / video.duration})`;
+    });
+    reel.querySelector(".reel-toggle").addEventListener("click", () => {
+      if (active === reel) { setMuted(reel, true); return; }
+      if (active) setMuted(active, true);
+      setMuted(reel, false);
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+  });
+
+  // Só toca o que está visível (economiza bateria e dados); som desliga ao sair da tela
+  const visibility = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const video = e.target.querySelector("video");
+      if (e.isIntersecting) video.play().catch(() => {});
+      else {
+        video.pause();
+        if (active === e.target) setMuted(e.target, true);
+      }
+    });
+  }, { threshold: 0.35 });
+  reels.forEach((r) => visibility.observe(r));
+
+  // Navegação: setas, pontos e estado atual
+  const step = () => reels[0].offsetWidth + parseFloat(getComputedStyle(track).columnGap || 20);
+  const update = () => {
+    const idx = Math.round(track.scrollLeft / step());
+    dots.forEach((d, i) => d.classList.toggle("active", i === Math.min(idx, dots.length - 1)));
+    const max = track.scrollWidth - track.clientWidth - 2;
+    arrows.forEach((a) => { a.disabled = a.dataset.dir === "-1" ? track.scrollLeft <= 2 : track.scrollLeft >= max; });
+  };
+  arrows.forEach((a) => a.addEventListener("click", () => track.scrollBy({ left: step() * Number(a.dataset.dir) })));
+  dots.forEach((d, i) => d.addEventListener("click", () => track.scrollTo({ left: step() * i })));
+  track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+  window.addEventListener("resize", update);
+  track.addEventListener("keydown", (ev) => {
+    if (ev.key === "ArrowRight") track.scrollBy({ left: step() });
+    if (ev.key === "ArrowLeft") track.scrollBy({ left: -step() });
+  });
+  update();
+
+  // Arrastar com o mouse no desktop
+  let startX = 0, startScroll = 0, moved = false, down = false;
+  track.addEventListener("pointerdown", (ev) => {
+    if (ev.pointerType !== "mouse") return;
+    down = true; moved = false; startX = ev.clientX; startScroll = track.scrollLeft;
+  });
+  window.addEventListener("pointermove", (ev) => {
+    if (!down) return;
+    const dx = ev.clientX - startX;
+    if (Math.abs(dx) > 5) { moved = true; track.classList.add("dragging"); }
+    if (moved) track.scrollLeft = startScroll - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    if (!down) return;
+    down = false;
+    if (moved) {
+      track.classList.remove("dragging");
+      track.scrollTo({ left: Math.round(track.scrollLeft / step()) * step() });
+    }
+  });
+});

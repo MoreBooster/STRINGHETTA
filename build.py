@@ -20,14 +20,9 @@ CONFIG = {
     "hours": "Atendimento com hora marcada",
     "units": [
         {
-            "name": "Unidade Tatuapé / Anália Franco",
-            "address": "Rua Nestor de Barros, 116 – Vila Santo Estevão",
-            "city": "São Paulo – SP · CEP 03325-050",
-        },
-        {
-            "name": "Unidade Moema",
-            "address": "Alameda dos Maracatins, 186 – Moema",
-            "city": "São Paulo – SP · CEP 04089-000",
+            "name": "Clínica Stringhetta – Tatuapé",
+            "address": "R. Coelho Lisboa, 544 – Tatuapé",
+            "city": "São Paulo – SP · CEP 03323-040",
         },
     ],
 }
@@ -225,7 +220,7 @@ def nav(current):
     <li><a href="/"{cur('home')}>Início</a></li>
     <li><a href="/#sobre">A clínica</a></li>
     <li class="has-sub"><a href="/procedimentos/"{cur('procedimentos')}>Procedimentos</a><ul class="submenu">{sub}</ul></li>
-    <li><a href="/#unidades">Unidades</a></li>
+    <li><a href="/#localizacao">Localização</a></li>
     <li><a href="/contato/"{cur('contato')}>Contato</a></li>
     <li><a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Agende ↗</a></li>
   </ul></nav>
@@ -247,7 +242,7 @@ def footer():
     </div>
     <div><h4>Estética</h4><ul>{estetica}</ul></div>
     <div><h4>Odonto e saúde</h4><ul>{odonto}</ul></div>
-    <div><h4>Unidades</h4><ul>{units}</ul></div>
+    <div><h4>Endereço</h4><ul>{units}</ul></div>
   </div>
   <div class="footer-bottom">
     <span>© <span data-year></span> {CONFIG['name']}. Todos os direitos reservados.</span>
@@ -300,23 +295,25 @@ def card(p):
 
 
 def units_section():
-    items = ""
-    for u in CONFIG["units"]:
-        q = quote(f"{u['address']}, {u['city']}")
-        items += f"""<div class="unit reveal">
-  <iframe loading="lazy" title="Mapa – {escape(u['name'])}" src="https://maps.google.com/maps?q={q}&output=embed"></iframe>
-  <div class="unit-body">
-    <h3>{escape(u['name'])}</h3>
-    <p>{escape(u['address'])}</p>
-    <p>{escape(u['city'])}</p>
-    <p>{escape(CONFIG['hours'])}</p>
-    <a class="btn btn--outline" style="margin-top:12px" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar</a>
+    u = CONFIG["units"][0]
+    q = quote(f"{u['address']}, {u['city']}")
+    return f"""<section class="section" id="localizacao"><div class="container">
+  <div class="section-head reveal"><span class="eyebrow">Onde estamos</span><h2>Venha nos visitar no Tatuapé</h2>
+  <p>Um espaço pensado para o seu conforto, na Zona Leste de São Paulo.</p></div>
+  <div class="location reveal">
+    <iframe loading="lazy" title="Mapa – {escape(u['name'])}" src="https://maps.google.com/maps?q={q}&output=embed"></iframe>
+    <div class="location-body">
+      <span class="location-mark" aria-hidden="true">✳</span>
+      <h3>{escape(u['name'])}</h3>
+      <p>{escape(u['address'])}<br>{escape(u['city'])}</p>
+      <p>{escape(CONFIG['hours'])}</p>
+      <p><a href="{wa_link()}" target="_blank" rel="noopener">WhatsApp {CONFIG['phone']}</a></p>
+      <div class="location-actions">
+        <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar ↗</a>
+        <a class="btn btn--outline" href="https://waze.com/ul?q={q}&navigate=yes" target="_blank" rel="noopener">Waze</a>
+      </div>
+    </div>
   </div>
-</div>"""
-    return f"""<section class="section" id="unidades"><div class="container">
-  <div class="section-head reveal"><span class="eyebrow">Onde estamos</span><h2>Duas unidades em São Paulo</h2>
-  <p>Estrutura moderna e confortável na Zona Leste e na Zona Sul.</p></div>
-  <div class="grid grid-2">{items}</div>
 </div></section>"""
 
 
@@ -387,7 +384,7 @@ def home():
     <div class="hero-copy" data-hero-copy>
       <span class="hero-kicker">+10.000 autoestimas renovadas</span>
       <h1>Realce a sua <br>beleza natural</h1>
-      <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
+      <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no coração do Tatuapé.</p>
       <div class="hero-actions">
         <a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Fale com um especialista ↗</a>
         <a class="btn btn--ghost" href="/procedimentos/">Procedimentos</a>
@@ -406,7 +403,7 @@ def home():
     </a>
     <div class="strip-card strip-card--light reveal">
       <h3>Avaliação personalizada</h3>
-      <p>Tatuapé · Moema</p>
+      <p>R. Coelho Lisboa, 544 · Tatuapé</p>
       <a class="link-arrow" href="{wa_link()}" target="_blank" rel="noopener">Agendar ↗</a>
       <span class="strip-mark" aria-hidden="true">✳</span>
     </div>
@@ -419,7 +416,7 @@ def home():
   <div class="stats">
     <div class="stat reveal"><strong data-count="10" data-prefix="+" data-suffix=" mil">+10 mil</strong><span>pacientes atendidos</span></div>
     <div class="stat reveal"><strong data-count="30" data-prefix="+">+30</strong><span>procedimentos</span></div>
-    <div class="stat reveal"><strong data-count="2">2</strong><span>unidades em São Paulo</span></div>
+    <div class="stat reveal"><strong data-count="100" data-suffix="%">100%</strong><span>atendimento personalizado</span></div>
     <div class="stat reveal"><strong data-count="5" data-decimals="1">5.0</strong><span>nota no Google</span></div>
   </div>
 </div></section>
@@ -429,7 +426,7 @@ def home():
   <div class="reveal">
     <span class="eyebrow">A clínica</span>
     <h2>Conheça nossa clínica!</h2>
-    <p>Somos especializados em odontologia e estética, com unidades no Anália Franco (Tatuapé) e em Moema. Do primeiro atendimento ao pós-procedimento, nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado.</p>
+    <p>Somos uma clínica especializada em odontologia e estética, localizada no Tatuapé, em São Paulo. Do primeiro atendimento ao pós-procedimento, nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado.</p>
     <ul class="checklist">
       <li>Avaliação detalhada e plano de tratamento personalizado</li>
       <li>Equipamentos modernos e materiais certificados</li>
@@ -465,10 +462,10 @@ def home():
 {testimonials_section()}
 {videos_section()}
 {units_section()}
-{marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+10.000 autoestimas renovadas"], reverse=True)}
+{marquee(["Realce a sua beleza natural", "Tatuapé · São Paulo", "+10.000 autoestimas renovadas"], reverse=True)}
 {cta_section("Fale com um especialista")}
 """
-    return page(CONFIG["name"], "Clínica de odontologia e estética no Tatuapé (Anália Franco) e em Moema, São Paulo. Botox, harmonização, implantes, clareamento e mais.", body, "home")
+    return page(CONFIG["name"], "Clínica de odontologia e estética no Tatuapé, São Paulo. Botox, harmonização, implantes, clareamento e mais.", body, "home")
 
 
 def procedures_index():
@@ -481,7 +478,7 @@ def procedures_index():
 <section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Procedimentos</div>
   <h1>Procedimentos</h1>
-  <p>Conheça os tratamentos de odontologia, estética e saúde disponíveis nas nossas unidades.</p>
+  <p>Conheça os tratamentos de odontologia, estética e saúde disponíveis na clínica.</p>
 </div></section>
 <section class="section"><div class="container">{sections}</div></section>
 {cta_section("Não sabe qual tratamento é ideal para você?")}
@@ -529,12 +526,11 @@ def procedure_page(p):
 
 {cta_section(f"Agende sua avaliação de {p['title'].lower()}")}
 """
-    return page(p["title"], f"{p['title']} na Clínica Stringhetta (Tatuapé e Moema, SP). {p['short']}", body, "procedimentos")
+    return page(p["title"], f"{p['title']} na Clínica Stringhetta (Tatuapé, São Paulo). {p['short']}", body, "procedimentos")
 
 
 def contact():
     options = "".join(f"<option>{escape(p['title'])}</option>" for p in PROCEDURES)
-    units = "".join(f"<option>{escape(u['name'])}</option>" for u in CONFIG["units"])
     body = f"""
 <section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Contato</div>
@@ -558,17 +554,14 @@ def contact():
       <div><label for="tel">Telefone</label><input id="tel" name="Telefone" type="tel" required autocomplete="tel"></div>
       <div><label for="email">E-mail</label><input id="email" name="E-mail" type="email" autocomplete="email"></div>
     </div>
-    <div class="form-row">
-      <div><label for="proc">Procedimento</label><select id="proc" name="Procedimento"><option value="">Selecione</option>{options}</select></div>
-      <div><label for="unid">Unidade</label><select id="unid" name="Unidade">{units}</select></div>
-    </div>
+    <div><label for="proc">Procedimento</label><select id="proc" name="Procedimento"><option value="">Selecione</option>{options}</select></div>
     <div><label for="msg">Mensagem</label><textarea id="msg" name="Mensagem" rows="4"></textarea></div>
     <button class="btn btn--primary" type="submit">Enviar pelo WhatsApp</button>
   </form>
 </div></section>
 {units_section()}
 """
-    return page("Contato", "Entre em contato com a Clínica Stringhetta e agende sua avaliação no Tatuapé ou em Moema.", body, "contato")
+    return page("Contato", "Entre em contato com a Clínica Stringhetta e agende sua avaliação no Tatuapé, São Paulo.", body, "contato")
 
 
 def not_found():

@@ -31,6 +31,7 @@ CONFIG = {
 PROCEDURES = [
     {
         "slug": "botox", "title": "Botox", "category": "estetica", "icon": "✦",
+        "image": "/assets/img/botox.jpg", "image_alt": "Paciente da clínica após aplicação de botox",
         "short": "Suaviza linhas de expressão da testa, glabela e olhos com aplicação precisa e resultado natural.",
         "intro": "A toxina botulínica relaxa temporariamente os músculos responsáveis pelas rugas dinâmicas, deixando o rosto com aparência descansada sem perder a expressividade.",
         "benefits": ["Aplicação rápida, em cerca de 30 minutos", "Retorno imediato à rotina",
@@ -501,7 +502,7 @@ def procedure_page(p):
 </div></section>
 
 <section class="section"><div class="container split">
-  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="{placeholder(p['title'], 1000, 800)}" alt="{escape(p['title'])}" width="1000" height="800"></div>
+  <div class="img-wrap reveal reveal--clip"><img data-parallax="0.12" src="{p.get('image') or placeholder(p['title'], 1000, 800)}" alt="{escape(p.get('image_alt', p['title']))}" width="1000" height="800"></div>
   <div class="reveal">
     <span class="eyebrow">Sobre o tratamento</span>
     <h2>O que é {escape(p['title'].lower())}?</h2>

@@ -286,12 +286,19 @@ def page(title, description, body, current=""):
 
 
 def card(p):
-    return f"""<a class="card reveal" href="/{p['slug']}/">
-  <span class="tag">{CATEGORIES[p['category']]}</span>
-  <div class="icon">{p['icon']}</div>
-  <h3>{escape(p['title'])}</h3>
-  <p>{escape(p['short'])}</p>
-  <span class="more">Saiba mais</span>
+    img = p.get("image") or placeholder(p["title"], 1000, 800)
+    alt = escape(p.get("image_alt", p["title"]))
+    return f"""<a class="card card--media reveal" href="/{p['slug']}/">
+  <div class="card-media">
+    <img src="{img}" alt="{alt}" loading="lazy" width="1000" height="800">
+    <span class="tag">{CATEGORIES[p['category']]}</span>
+  </div>
+  <div class="card-body">
+    <span class="icon">{p['icon']}</span>
+    <h3>{escape(p['title'])}</h3>
+    <p>{escape(p['short'])}</p>
+    <span class="more">Saiba mais</span>
+  </div>
 </a>"""
 
 

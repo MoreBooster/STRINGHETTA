@@ -32,6 +32,8 @@ Paleta creme e dourado, com variáveis no topo de `assets/css/style.css`, e font
 
 - **Foto do hero:** salve como `assets/img/hero.jpg` (paisagem, cerca de 2400×1400). Ela aparece automaticamente com uma sobreposição dourada; sem ela, fica o degradê dourado.
 
+- **Fotos dos procedimentos:** salve em `assets/img/` e adicione `"image": "/assets/img/nome.jpg"` (e opcionalmente `"image_alt"`) ao procedimento no `build.py`. A foto aparece no card da home, na página de procedimentos e na página do próprio procedimento.
+
 As imagens em `assets/img/*.svg` são provisórias. Substitua pelas fotos reais (de preferência `.webp`)
 mantendo o mesmo nome, ou altere o caminho na função `placeholder()` do `build.py`.
 

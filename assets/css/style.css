@@ -532,3 +532,18 @@ p { margin: 0 0 1em; }
 .reveal--clip video { clip-path: inset(100% 0 0 0); transition: clip-path 1.3s cubic-bezier(.7,0,.2,1); }
 .reveal--clip.visible video { clip-path: inset(0 0 0 0); }
 @media (prefers-reduced-motion: reduce) { .reveal--clip video { clip-path: none; } }
+
+/* Vídeo de fundo do hero */
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%;
+  z-index: 0; transform: scale(1.06); will-change: transform; pointer-events: none;
+}
+.hero-shade {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(35,25,12,.86) 0%, rgba(35,25,12,.58) 45%, rgba(35,25,12,.35) 100%),
+    linear-gradient(180deg, rgba(35,25,12,.35) 0%, transparent 30%, transparent 60%, rgba(35,25,12,.55) 100%),
+    linear-gradient(120deg, rgba(201,164,100,.18), rgba(201,164,100,0) 60%);
+}
+.hero-rays { z-index: 0; }
+.hero-inner, .hero-strip { z-index: 1; }

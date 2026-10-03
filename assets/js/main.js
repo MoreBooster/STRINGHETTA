@@ -121,6 +121,7 @@ const progress = document.querySelector(".scroll-progress");
 const hero = document.querySelector(".hero");
 const heroCopy = document.querySelector("[data-hero-copy]");
 const heroRays = document.querySelector(".hero-rays");
+const heroVideo = document.querySelector(".hero-video");
 const parallaxImgs = [...document.querySelectorAll("[data-parallax]")];
 const spinners = [...document.querySelectorAll("[data-spin], .strip-mark")];
 const marquees = [...document.querySelectorAll(".marquee-track")].map((el) => ({
@@ -148,6 +149,7 @@ function onFrame() {
   if (hero && y < hero.offsetHeight) {
     const p = y / hero.offsetHeight;
     hero.style.backgroundPosition = `center, center ${50 + p * 30}%, center`;
+    if (heroVideo) heroVideo.style.transform = `translateY(${y * 0.35}px) scale(1.06)`;
     if (heroCopy) {
       heroCopy.style.transform = `translateY(${y * 0.35}px)`;
       heroCopy.style.opacity = String(clamp(1 - p * 2.2, 0, 1));

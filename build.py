@@ -390,6 +390,8 @@ def home():
     featured = "".join(card(p) for p in PROCEDURES if p['slug'] in FEATURED)
     body = f"""
 <section class="hero">
+  <video class="hero-video" data-autoplay src="/assets/video/hero.mp4" poster="/assets/video/hero.jpg" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-rays" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy" data-hero-copy>

@@ -424,7 +424,7 @@ p { margin: 0 0 1em; }
 
 .reels-track {
   display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
-  padding: 10px 0 24px; scrollbar-width: none; cursor: grab; outline: none;
+  padding: 24px 8px 28px; margin: -14px -8px 0; scroll-padding-left: 8px; scrollbar-width: none; cursor: grab; outline: none;
 }
 .reels-track::-webkit-scrollbar { display: none; }
 .reels-track.dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }

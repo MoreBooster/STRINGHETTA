@@ -42,6 +42,7 @@ PROCEDURES = [
     },
     {
         "slug": "preenchimento-labial", "title": "Preenchimento labial", "category": "estetica", "icon": "◡",
+        "image": "/assets/img/preenchimento-labial.jpg", "image_alt": "Lábios de paciente após preenchimento labial",
         "short": "Volume, contorno e hidratação para lábios mais harmoniosos com ácido hialurônico.",
         "intro": "Com ácido hialurônico de alta qualidade, o preenchimento labial devolve volume, define o contorno e melhora a hidratação, sempre respeitando as proporções do seu rosto.",
         "benefits": ["Contorno e volume sob medida", "Correção de assimetrias",

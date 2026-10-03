@@ -512,3 +512,16 @@ p { margin: 0 0 1em; }
 .card-media .tag { position: absolute; top: 16px; left: 16px; z-index: 1; margin: 0; background: rgba(255,251,244,.92); }
 .card-body { position: relative; padding: 30px 30px 28px; display: flex; flex-direction: column; flex: 1; }
 .card-body .icon { position: absolute; right: 22px; top: -24px; z-index: 2; margin: 0; width: 48px; height: 48px; font-size: 1.15rem; background: var(--ivory); border: 1px solid var(--line); }
+
+/* Logo oficial: aplicada como máscara, assume a cor do texto do contexto */
+.logo-img {
+  display: block; width: 190px; aspect-ratio: 900 / 236; background-color: currentColor;
+  -webkit-mask: url("/assets/img/logo.png") no-repeat center / contain;
+  mask: url("/assets/img/logo.png") no-repeat center / contain;
+  transition: background-color .35s;
+}
+.header .logo { color: var(--gold-3); }
+.header--overlay:not(.is-scrolled) .logo { color: var(--ivory); }
+.footer .logo { color: var(--cream); }
+.footer .logo-img { width: 210px; }
+@media (max-width: 600px) { .logo-img { width: 150px; } }

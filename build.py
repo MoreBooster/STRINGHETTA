@@ -215,7 +215,7 @@ def nav(current):
     sub = "".join(f'<li><a href="/{p["slug"]}/">{escape(p["title"])}</a></li>' for p in PROCEDURES)
     return f"""
 <header class="header{' header--overlay' if current == 'home' else ''}"><div class="container">
-  <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-mark">✳</span><span class="logo-text">Clínica<br>Stringhetta</span></a>
+  <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-img" role="img" aria-label="{CONFIG['name']}"></span></a>
   <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
   <div class="header-right">
   <div class="social social--header">{socials()}</div>
@@ -239,7 +239,7 @@ def footer():
 <footer class="footer"><div class="container">
   <div class="footer-grid">
     <div>
-      <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-mark">✳</span><span class="logo-text">Clínica<br>Stringhetta</span></a>
+      <a href="/" class="logo" aria-label="{CONFIG['name']} – início"><span class="logo-img" role="img" aria-label="{CONFIG['name']}"></span></a>
       <p style="margin-top:14px">Odontologia e estética com atendimento humanizado, tecnologia e resultados naturais.</p>
       <div class="social">{socials()}</div>
     </div>
@@ -269,7 +269,8 @@ def page(title, description, body, current=""):
 <meta property="og:description" content="{escape(description)}">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#c9a464">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -591,10 +592,6 @@ def write(rel, content):
 
 def main():
     (ROOT / "assets" / "img").mkdir(parents=True, exist_ok=True)
-    (ROOT / "assets" / "img" / "favicon.svg").write_text(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#c9a464"/>'
-        '<text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" fill="#fbf6ec">S</text></svg>',
-        encoding="utf-8")
     write("index.html", home())
     write("procedimentos/index.html", procedures_index())
     for p in PROCEDURES:

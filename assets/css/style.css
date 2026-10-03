@@ -316,8 +316,8 @@ p { margin: 0 0 1em; }
   .strip-card { min-height: 200px; border-radius: 0 !important; }
   .strip-card:first-child { border-radius: var(--radius) var(--radius) 0 0 !important; }
   .strip-card:last-child { border-radius: 0 0 var(--radius) var(--radius) !important; }
-  .strip-card--photo { display: none; }
-  .strip-card--quote { border-radius: var(--radius) var(--radius) 0 0 !important; }
+  .strip-card--photo { min-height: 320px; }
+
 }
 
 /* ===== Efeitos de rolagem ===== */
@@ -477,4 +477,12 @@ p { margin: 0 0 1em; }
   .reels-controls { display: none; }
   .reel { flex-basis: 72vw; }
   .reels-footer { flex-direction: column; }
+}
+
+/* Card de antes e depois no hero */
+.strip-card--photo img { object-position: center 40%; }
+.ba-label { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: space-around; pointer-events: none; }
+.ba-label span {
+  font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+  background: rgba(255,251,244,.88); padding: 4px 10px; border-radius: 999px;
 }

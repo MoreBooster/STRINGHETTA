@@ -395,7 +395,7 @@ def home():
     </div>
   </div>
   <div class="container hero-strip" data-hero-strip>
-    <div class="strip-card strip-card--photo reveal"><img src="{placeholder('Paciente', 600, 600)}" alt="Paciente da clínica" width="600" height="600"></div>
+    <div class="strip-card strip-card--photo reveal"><img src="/assets/img/paciente-antes-depois.jpg" alt="Antes e depois de paciente da clínica, perfil do rosto" width="532" height="564"><span class="ba-label"><span>Antes</span><span>Depois</span></span></div>
     <div class="strip-card strip-card--quote reveal">
       <span class="quote-mark">“</span>
       <p>Nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado que você merece.</p>

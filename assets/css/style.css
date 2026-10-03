@@ -540,7 +540,7 @@ p { margin: 0 0 1em; }
 }
 .hero-shade {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: rgba(42, 32, 21, .30); /* --espresso a 30% */
+  background: rgba(42, 32, 21, .55); /* --espresso a 55% */
 }
 .hero-rays { display: none; }
 /* sem overlay forte: sombra suave garante a leitura do texto sobre o vídeo */

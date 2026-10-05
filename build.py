@@ -70,14 +70,6 @@ PROCEDURES = [
         "wa": "Vi sobre os protocolos com Laser Lavieen no site e quero saber mais!",
     },
     {
-        "slug": "gluteo-max", "title": "Harmonização de glúteos", "category": "estetica", "icon": "◠",
-        "short": "Volume, contorno e firmeza para os glúteos sem cirurgia.",
-        "intro": "A harmonização de glúteos combina bioestimuladores e técnicas de preenchimento para melhorar contorno, projeção e firmeza, de forma segura e sem cortes.",
-        "benefits": ["Mais projeção e contorno", "Melhora da flacidez e da celulite",
-                     "Procedimento sem cortes", "Resultado progressivo"],
-        "faq": [("Precisa de repouso?", "Recomendamos evitar exercícios intensos por alguns dias. As atividades leves podem ser retomadas logo.")],
-    },
-    {
         "slug": "harmonizacao-facial", "title": "Harmonização facial", "category": "estetica", "icon": "◇",
         "short": "Conjunto de procedimentos que equilibra proporções e realça a beleza do rosto.",
         "intro": "A harmonização facial combina técnicas como preenchimentos, toxina botulínica e bioestimuladores em um plano único, desenhado a partir da análise do seu rosto.",
@@ -156,7 +148,7 @@ PROCEDURES = [
     },
 ]
 
-FEATURED = ["botox", "preenchimento-labial", "gluteo-max", "lentes-em-resina-estratificada", "ulthera", "lavieen"]
+FEATURED = ["botox", "preenchimento-labial", "harmonizacao-facial", "lentes-em-resina-estratificada", "ulthera", "lavieen"]
 
 CATEGORIES = {
     "estetica": "Estética facial",
@@ -603,7 +595,8 @@ def main():
     # Redirecionamentos de URLs antigas do WordPress
     for old, new in {"procedimentos-2-0": "/procedimentos/", "vsl-botox": "/botox/",
                      "botox-captura": "/botox/", "vsl-preenchimento": "/preenchimento-labial/",
-                     "vsl-lente-resina": "/lentes-em-resina-estratificada/"}.items():
+                     "vsl-lente-resina": "/lentes-em-resina-estratificada/",
+                     "gluteo-max": "/procedimentos/"}.items():
         write(f"{old}/index.html", f'<!doctype html><meta charset="utf-8"><title>Redirecionando…</title>'
               f'<link rel="canonical" href="{new}"><meta http-equiv="refresh" content="0; url={new}">'
               f'<a href="{new}">Clique aqui</a>')

@@ -20,26 +20,20 @@ CONFIG = {
     "hours": "Atendimento com hora marcada",
     "units": [
         {
-            "name": "Clínica Stringhetta – Tatuapé",
+            "name": "Unidade Tatuapé",
             "address": "R. Coelho Lisboa, 544 – Tatuapé",
             "city": "São Paulo – SP · CEP 03323-040",
+        },
+        {
+            "name": "Unidade Moema",
+            "address": "Alameda dos Maracatins, 176 – Moema",
+            "city": "São Paulo – SP",
         },
     ],
 }
 
 # category: "odonto" | "estetica" | "saude"
 PROCEDURES = [
-    {
-        "slug": "botox", "title": "Botox", "category": "estetica", "icon": "✦",
-        "image": "/assets/img/botox.jpg", "image_alt": "Paciente da clínica após aplicação de botox",
-        "short": "Suaviza linhas de expressão da testa, glabela e olhos com aplicação precisa e resultado natural.",
-        "intro": "A toxina botulínica relaxa temporariamente os músculos responsáveis pelas rugas dinâmicas, deixando o rosto com aparência descansada sem perder a expressividade.",
-        "benefits": ["Aplicação rápida, em cerca de 30 minutos", "Retorno imediato à rotina",
-                     "Prevenção de rugas profundas", "Resultado natural e personalizado"],
-        "faq": [("Quanto tempo dura o efeito?", "Em média de 4 a 6 meses, variando conforme o metabolismo e a musculatura de cada paciente."),
-                ("Quando vejo o resultado?", "Os primeiros efeitos aparecem entre 3 e 5 dias, com resultado completo em cerca de 15 dias."),
-                ("Dói?", "O desconforto é mínimo. Utilizamos agulhas ultrafinas e, se necessário, anestésico tópico.")],
-    },
     {
         "slug": "preenchimento-labial", "title": "Preenchimento labial", "category": "estetica", "icon": "◡",
         "image": "/assets/img/preenchimento-labial.jpg", "image_alt": "Lábios de paciente após preenchimento labial",
@@ -79,38 +73,12 @@ PROCEDURES = [
                 ("Quem pode fazer?", "Adultos saudáveis após avaliação presencial com nossos especialistas.")],
     },
     {
-        "slug": "ultraformer", "title": "Ultraformer", "category": "estetica", "icon": "≋",
-        "short": "Ultrassom microfocado para lifting sem cortes, firmeza e contorno facial e corporal.",
-        "intro": "O Ultraformer utiliza ultrassom microfocado para estimular colágeno nas camadas profundas da pele, promovendo efeito lifting e melhora do contorno sem cirurgia.",
-        "benefits": ["Efeito lifting sem cortes", "Estímulo natural de colágeno",
-                     "Melhora da flacidez de rosto e corpo", "Sem tempo de recuperação"],
-        "faq": [("Em quanto tempo vejo o resultado?", "Há melhora imediata, e o resultado evolui ao longo de 60 a 90 dias."),
-                ("Quantas sessões?", "Normalmente uma sessão, com manutenção anual.")],
-    },
-    {
         "slug": "bioestimulador", "title": "Bioestimulador de colágeno", "category": "estetica", "icon": "✺",
         "short": "Estimula a produção de colágeno para mais firmeza e qualidade da pele.",
         "intro": "Os bioestimuladores ativam a produção natural de colágeno, tratando flacidez e melhorando a textura da pele de forma gradual e duradoura.",
         "benefits": ["Mais firmeza e sustentação", "Melhora da textura da pele",
                      "Efeito gradual e natural", "Resultados que duram até 2 anos"],
         "faq": [("Indicado para qual idade?", "A partir dos 30 anos, ou quando surgem os primeiros sinais de flacidez.")],
-    },
-    {
-        "slug": "implante-dentario", "title": "Implante dentário", "category": "odonto", "icon": "⚲",
-        "short": "Reposição de dentes perdidos com segurança, estética e função mastigatória.",
-        "intro": "O implante dentário substitui a raiz do dente perdido por um pino de titânio biocompatível, sobre o qual é instalada uma coroa com aparência natural.",
-        "benefits": ["Planejamento digital com tomografia", "Devolve a mastigação e o sorriso",
-                     "Preserva o osso da face", "Solução duradoura"],
-        "faq": [("O implante dói?", "O procedimento é feito com anestesia local e o pós-operatório costuma ser tranquilo."),
-                ("Quanto tempo leva?", "Depende do caso. Em algumas situações é possível a carga imediata.")],
-    },
-    {
-        "slug": "protese-dentaria", "title": "Prótese dentária", "category": "odonto", "icon": "⌒",
-        "short": "Próteses fixas, móveis e sobre implantes, confortáveis e com estética natural.",
-        "intro": "Confeccionamos próteses sob medida para recuperar a função e a estética do sorriso, com materiais de alta resistência e acabamento natural.",
-        "benefits": ["Próteses fixas, removíveis e protocolos", "Materiais de alta resistência",
-                     "Ajuste confortável", "Cor e formato personalizados"],
-        "faq": [("Qual tipo de prótese é o ideal?", "Isso é definido na avaliação, considerando sua saúde bucal e expectativas.")],
     },
     {
         "slug": "clareamento-dental", "title": "Clareamento dental", "category": "odonto", "icon": "☼",
@@ -130,25 +98,9 @@ PROCEDURES = [
         "faq": [("Quanto tempo duram?", "Com higiene adequada e consultas de manutenção, duram vários anos."),
                 ("Qual a diferença para a porcelana?", "A resina é feita direto no consultório, com menor custo e reparo mais simples; a porcelana tem maior resistência a manchas.")],
     },
-    {
-        "slug": "ortodontia", "title": "Ortodontia e alinhadores", "category": "odonto", "icon": "⌇",
-        "short": "Aparelhos convencionais, estéticos e alinhadores transparentes.",
-        "intro": "Corrigimos o alinhamento dos dentes e a mordida com aparelhos fixos, estéticos ou alinhadores transparentes praticamente invisíveis.",
-        "benefits": ["Alinhadores transparentes", "Aparelhos estéticos",
-                     "Planejamento digital do tratamento", "Para adolescentes e adultos"],
-        "faq": [("Alinhador funciona para todos os casos?", "Atende grande parte dos casos. A indicação é feita na avaliação.")],
-    },
-    {
-        "slug": "nutricionista", "title": "Nutricionista", "category": "saude", "icon": "❦",
-        "short": "Acompanhamento nutricional para saúde, emagrecimento e performance.",
-        "intro": "Nosso acompanhamento nutricional cria um plano alimentar realista e personalizado, integrado aos seus objetivos estéticos e de saúde.",
-        "benefits": ["Plano alimentar individual", "Avaliação de composição corporal",
-                     "Acompanhamento contínuo", "Integração com tratamentos estéticos"],
-        "faq": [("Preciso fazer exames antes?", "Se necessário, a nutricionista solicitará exames na primeira consulta.")],
-    },
 ]
 
-FEATURED = ["botox", "preenchimento-labial", "harmonizacao-facial", "lentes-em-resina-estratificada", "ulthera", "lavieen"]
+FEATURED = ["preenchimento-labial", "harmonizacao-facial", "ulthera", "lavieen", "bioestimulador", "lentes-em-resina-estratificada"]
 
 CATEGORIES = {
     "estetica": "Estética facial",
@@ -215,7 +167,8 @@ def nav(current):
     <li><a href="/"{cur('home')}>Início</a></li>
     <li><a href="/#sobre">A clínica</a></li>
     <li class="has-sub"><a href="/procedimentos/"{cur('procedimentos')}>Procedimentos</a><ul class="submenu">{sub}</ul></li>
-    <li><a href="/#localizacao">Localização</a></li>
+    <li><a href="/#espaco-kids" class="nav-kids">Espaço Kids</a></li>
+    <li><a href="/#unidades">Unidades</a></li>
     <li><a href="/contato/"{cur('contato')}>Contato</a></li>
     <li><a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Agende ↗</a></li>
   </ul></nav>
@@ -236,8 +189,8 @@ def footer():
       <div class="social">{socials()}</div>
     </div>
     <div><h4>Estética</h4><ul>{estetica}</ul></div>
-    <div><h4>Odonto e saúde</h4><ul>{odonto}</ul></div>
-    <div><h4>Endereço</h4><ul>{units}</ul></div>
+    <div><h4>Odontologia</h4><ul>{odonto}</ul></div>
+    <div><h4>Unidades</h4><ul>{units}</ul></div>
   </div>
   <div class="footer-bottom">
     <span>© <span data-year></span> {CONFIG['name']}. Todos os direitos reservados.</span>
@@ -265,7 +218,7 @@ def page(title, description, body, current=""):
 <link rel="apple-touch-icon" href="/assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -298,25 +251,26 @@ def card(p):
 
 
 def units_section():
-    u = CONFIG["units"][0]
-    q = quote(f"{u['address']}, {u['city']}")
-    return f"""<section class="section" id="localizacao"><div class="container">
-  <div class="section-head reveal"><span class="eyebrow">Onde estamos</span><h2>Venha nos visitar no Tatuapé</h2>
-  <p>Um espaço pensado para o seu conforto, na Zona Leste de São Paulo.</p></div>
-  <div class="location reveal">
+    blocks = ""
+    for u in CONFIG["units"]:
+        q = quote(f"{u['address']}, {u['city'].split(' · ')[0]}")
+        blocks += f"""<div class="unit reveal">
     <iframe loading="lazy" title="Mapa – {escape(u['name'])}" src="https://maps.google.com/maps?q={q}&output=embed"></iframe>
-    <div class="location-body">
+    <div class="unit-body">
       <span class="location-mark" aria-hidden="true">✳</span>
       <h3>{escape(u['name'])}</h3>
       <p>{escape(u['address'])}<br>{escape(u['city'])}</p>
       <p>{escape(CONFIG['hours'])}</p>
-      <p><a href="{wa_link()}" target="_blank" rel="noopener">WhatsApp {CONFIG['phone']}</a></p>
       <div class="location-actions">
         <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar ↗</a>
         <a class="btn btn--outline" href="https://waze.com/ul?q={q}&navigate=yes" target="_blank" rel="noopener">Waze</a>
       </div>
     </div>
-  </div>
+  </div>"""
+    return f"""<section class="section" id="unidades"><div class="container">
+  <div class="section-head reveal"><span class="eyebrow">Onde estamos</span><h2>Duas unidades em São Paulo</h2>
+  <p>Escolha a mais perto de você: Tatuapé, na Zona Leste, ou Moema, na Zona Sul.</p></div>
+  <div class="grid grid-2">{blocks}</div>
 </div></section>"""
 
 
@@ -378,6 +332,58 @@ def videos_section():
 </div></section>"""
 
 
+def kids_section():
+    """Seção Espaço Kids da home (âncora #espaco-kids)."""
+    mascot = """<svg class="kids-mascot" viewBox="0 0 200 220" aria-hidden="true">
+      <ellipse cx="100" cy="210" rx="56" ry="8" fill="rgba(138,106,51,.18)"/>
+      <path d="M100 20c-26-14-72-12-78 30-5 34 10 52 14 78 5 34 6 64 24 66 16 2 18-34 26-50 4-8 10-10 14-10s10 2 14 10c8 16 10 52 26 50 18-2 19-32 24-66 4-26 19-44 14-78-6-42-52-44-78-30z"
+            fill="#fffbf4" stroke="#b08a4a" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="74" cy="78" r="7" fill="#3a2e1c"/><circle cx="126" cy="78" r="7" fill="#3a2e1c"/>
+      <circle cx="76.5" cy="75.5" r="2.4" fill="#fff"/><circle cx="128.5" cy="75.5" r="2.4" fill="#fff"/>
+      <ellipse cx="60" cy="98" rx="10" ry="6" fill="#ead9b6"/><ellipse cx="140" cy="98" rx="10" ry="6" fill="#ead9b6"/>
+      <path d="M82 100q18 18 36 0" fill="none" stroke="#3a2e1c" stroke-width="5" stroke-linecap="round"/>
+      <path class="kids-sparkle" d="M160 22l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#c9a464"/>
+    </svg>"""
+    icons = {
+        "play": '<svg viewBox="0 0 48 48"><rect x="6" y="20" width="16" height="16" rx="3"/><rect x="26" y="20" width="16" height="16" rx="3"/><rect x="16" y="6" width="16" height="14" rx="3"/></svg>',
+        "art": '<svg viewBox="0 0 48 48"><path d="M24 6C13 6 6 14 6 23c0 9 7 15 13 15 4 0 4-3 3-5-1-3 1-5 4-5h6c6 0 10-4 10-10C42 11 34 6 24 6z"/><circle cx="16" cy="20" r="3" fill="#fffbf4"/><circle cx="24" cy="14" r="3" fill="#fffbf4"/><circle cx="33" cy="18" r="3" fill="#fffbf4"/></svg>',
+        "safe": '<svg viewBox="0 0 48 48"><path d="M24 5l16 6v11c0 11-7 18-16 21C15 40 8 33 8 22V11z"/><path d="M17 24l5 5 9-10" fill="none" stroke="#fffbf4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        "heart": '<svg viewBox="0 0 48 48"><path d="M24 41S6 30 6 17c0-6 5-11 11-11 4 0 6 2 7 4 1-2 3-4 7-4 6 0 11 5 11 11 0 13-18 24-18 24z"/></svg>',
+    }
+    items = [
+        ("play", "Brincadeiras", "Brinquedos e livrinhos para os pequenos se divertirem."),
+        ("art", "Criatividade", "Atividades para colorir, desenhar e soltar a imaginação."),
+        ("safe", "Ambiente seguro", "Um espaço acolhedor, limpo e pensado para crianças."),
+        ("heart", "Você tranquila", "Enquanto você se cuida, eles ficam bem pertinho."),
+    ]
+    cards = "".join(f"""<div class="kids-card reveal">
+        <span class="kids-icon">{icons[k]}</span>
+        <h3>{t}</h3><p>{d}</p>
+      </div>""" for k, t, d in items)
+    shapes = "".join(f'<span class="kids-shape kids-shape--{n}" data-float="{f}" aria-hidden="true"></span>'
+                     for n, f in [("star", .25), ("circle", -.18), ("cloud", .12), ("squiggle", -.22), ("dot", .3), ("star2", -.15)])
+    return f"""<section class="kids" id="espaco-kids">
+  <svg class="kids-wave kids-wave--top" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V40c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0V80z"/></svg>
+  {shapes}
+  <div class="container">
+    <div class="kids-grid">
+      <div class="kids-intro reveal">
+        <span class="kids-badge">✦ Espaço Kids ✦</span>
+        <h2>Um cantinho feito para os pequenos</h2>
+        <p>Trouxe as crianças? Elas são super bem-vindas! Nosso Espaço Kids é um ambiente lúdico e aconchegante para os pequenos brincarem enquanto você aproveita o seu momento de autocuidado.</p>
+        <a class="btn kids-btn" href="{wa_link("Olá! Quero saber mais sobre o Espaço Kids.")}" target="_blank" rel="noopener">Quero saber mais ↗</a>
+      </div>
+      <div class="kids-visual reveal">
+        <div class="kids-photo"><img src="{placeholder('Foto do Espaço Kids', 800, 800)}" alt="Espaço Kids da Clínica Stringhetta" loading="lazy" width="800" height="800"></div>
+        {mascot}
+      </div>
+    </div>
+    <div class="kids-cards">{cards}</div>
+  </div>
+  <svg class="kids-wave kids-wave--bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0v40c120 30 240 30 360 0s240-30 360 0 240 30 360 0 240-30 360 0V0z"/></svg>
+</section>"""
+
+
 def home():
     featured = "".join(card(p) for p in PROCEDURES if p['slug'] in FEATURED)
     body = f"""
@@ -387,9 +393,9 @@ def home():
   <div class="hero-rays" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy" data-hero-copy>
-      <span class="hero-kicker">+10.000 autoestimas renovadas</span>
+      <span class="hero-kicker">+53.000 autoestimas renovadas</span>
       <h1>Realce a sua <br>beleza natural</h1>
-      <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no coração do Tatuapé.</p>
+      <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
       <div class="hero-actions">
         <a class="btn btn--primary" href="{wa_link()}" target="_blank" rel="noopener">Fale com um especialista ↗</a>
         <a class="btn btn--ghost" href="/procedimentos/">Procedimentos</a>
@@ -408,7 +414,7 @@ def home():
     </a>
     <div class="strip-card strip-card--light reveal">
       <h3>Avaliação personalizada</h3>
-      <p>R. Coelho Lisboa, 544 · Tatuapé</p>
+      <p>Unidades Tatuapé e Moema</p>
       <a class="link-arrow" href="{wa_link()}" target="_blank" rel="noopener">Agendar ↗</a>
       <span class="strip-mark" aria-hidden="true">✳</span>
     </div>
@@ -419,9 +425,9 @@ def home():
 
 <section class="section section--brand"><div class="container">
   <div class="stats">
-    <div class="stat reveal"><strong data-count="10" data-prefix="+" data-suffix=" mil">+10 mil</strong><span>pacientes atendidos</span></div>
+    <div class="stat reveal"><strong data-count="53" data-prefix="+" data-suffix=" mil">+53 mil</strong><span>pacientes atendidos</span></div>
     <div class="stat reveal"><strong data-count="30" data-prefix="+">+30</strong><span>procedimentos</span></div>
-    <div class="stat reveal"><strong data-count="100" data-suffix="%">100%</strong><span>atendimento personalizado</span></div>
+    <div class="stat reveal"><strong data-count="2">2</strong><span>unidades em São Paulo</span></div>
     <div class="stat reveal"><strong data-count="5" data-decimals="1">5.0</strong><span>nota no Google</span></div>
   </div>
 </div></section>
@@ -431,7 +437,7 @@ def home():
   <div class="reveal">
     <span class="eyebrow">A clínica</span>
     <h2>Conheça nossa clínica!</h2>
-    <p>Somos uma clínica especializada em odontologia e estética, localizada no Tatuapé, em São Paulo. Do primeiro atendimento ao pós-procedimento, nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado.</p>
+    <p>Somos uma clínica especializada em odontologia e estética, com duas unidades em São Paulo: Tatuapé e Moema. Do primeiro atendimento ao pós-procedimento, nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado.</p>
     <ul class="checklist">
       <li>Avaliação detalhada e plano de tratamento personalizado</li>
       <li>Equipamentos modernos e materiais certificados</li>
@@ -449,7 +455,7 @@ def home():
 
 <section class="section section--alt"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Procedimentos</span><h2>Conheça alguns procedimentos</h2>
-  <p>Mais de 30 procedimentos em odontologia, estética e saúde.</p></div>
+  <p>Tratamentos de estética facial e odontologia com resultados naturais.</p></div>
   <div class="grid grid-3">{featured}</div>
   <p style="text-align:center;margin-top:40px"><a class="btn btn--outline" href="/procedimentos/">Ver todos os procedimentos ↗</a></p>
 </div></section>
@@ -464,31 +470,35 @@ def home():
   </div>
 </div></section>
 
+{kids_section()}
+
 {testimonials_section()}
 {videos_section()}
 {units_section()}
-{marquee(["Realce a sua beleza natural", "Tatuapé · São Paulo", "+10.000 autoestimas renovadas"], reverse=True)}
+{marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+53.000 autoestimas renovadas"], reverse=True)}
 {cta_section("Fale com um especialista")}
 """
-    return page(CONFIG["name"], "Clínica de odontologia e estética no Tatuapé, São Paulo. Botox, harmonização, implantes, clareamento e mais.", body, "home")
+    return page(CONFIG["name"], "Clínica de odontologia e estética com unidades no Tatuapé e em Moema, São Paulo. Harmonização facial, preenchimento labial, Ulthera, lentes em resina e mais.", body, "home")
 
 
 def procedures_index():
     sections = ""
     for key, label in CATEGORIES.items():
         cards = "".join(card(p) for p in PROCEDURES if p["category"] == key)
+        if not cards:
+            continue
         sections += f"""<div style="margin-bottom:56px"><h2 class="reveal" style="font-size:1.8rem">{label}</h2>
   <div class="grid grid-3">{cards}</div></div>"""
     body = f"""
 <section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Procedimentos</div>
   <h1>Procedimentos</h1>
-  <p>Conheça os tratamentos de odontologia, estética e saúde disponíveis na clínica.</p>
+  <p>Conheça os tratamentos de estética facial e odontologia disponíveis na clínica.</p>
 </div></section>
 <section class="section"><div class="container">{sections}</div></section>
 {cta_section("Não sabe qual tratamento é ideal para você?")}
 """
-    return page("Procedimentos", "Todos os procedimentos de odontologia, estética facial e saúde da Clínica Stringhetta.", body, "procedimentos")
+    return page("Procedimentos", "Todos os procedimentos de estética facial e odontologia da Clínica Stringhetta.", body, "procedimentos")
 
 
 def procedure_page(p):
@@ -531,11 +541,12 @@ def procedure_page(p):
 
 {cta_section(f"Agende sua avaliação de {p['title'].lower()}")}
 """
-    return page(p["title"], f"{p['title']} na Clínica Stringhetta (Tatuapé, São Paulo). {p['short']}", body, "procedimentos")
+    return page(p["title"], f"{p['title']} na Clínica Stringhetta (Tatuapé e Moema, São Paulo). {p['short']}", body, "procedimentos")
 
 
 def contact():
     options = "".join(f"<option>{escape(p['title'])}</option>" for p in PROCEDURES)
+    units = "".join(f"<option>{escape(u['name'])}</option>" for u in CONFIG["units"])
     body = f"""
 <section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Contato</div>
@@ -559,14 +570,17 @@ def contact():
       <div><label for="tel">Telefone</label><input id="tel" name="Telefone" type="tel" required autocomplete="tel"></div>
       <div><label for="email">E-mail</label><input id="email" name="E-mail" type="email" autocomplete="email"></div>
     </div>
-    <div><label for="proc">Procedimento</label><select id="proc" name="Procedimento"><option value="">Selecione</option>{options}</select></div>
+    <div class="form-row">
+      <div><label for="proc">Procedimento</label><select id="proc" name="Procedimento"><option value="">Selecione</option>{options}</select></div>
+      <div><label for="unid">Unidade</label><select id="unid" name="Unidade">{units}</select></div>
+    </div>
     <div><label for="msg">Mensagem</label><textarea id="msg" name="Mensagem" rows="4"></textarea></div>
     <button class="btn btn--primary" type="submit">Enviar pelo WhatsApp</button>
   </form>
 </div></section>
 {units_section()}
 """
-    return page("Contato", "Entre em contato com a Clínica Stringhetta e agende sua avaliação no Tatuapé, São Paulo.", body, "contato")
+    return page("Contato", "Entre em contato com a Clínica Stringhetta e agende sua avaliação no Tatuapé ou em Moema, São Paulo.", body, "contato")
 
 
 def not_found():
@@ -593,8 +607,11 @@ def main():
     write("contato/index.html", contact())
     write("404.html", not_found())
     # Redirecionamentos de URLs antigas do WordPress
-    for old, new in {"procedimentos-2-0": "/procedimentos/", "vsl-botox": "/botox/",
-                     "botox-captura": "/botox/", "vsl-preenchimento": "/preenchimento-labial/",
+    for old, new in {"procedimentos-2-0": "/procedimentos/", "vsl-botox": "/procedimentos/",
+                     "botox-captura": "/procedimentos/", "botox": "/procedimentos/",
+                     "ultraformer": "/ulthera/", "implante-dentario": "/procedimentos/",
+                     "protese-dentaria": "/procedimentos/", "ortodontia": "/procedimentos/",
+                     "nutricionista": "/procedimentos/", "vsl-preenchimento": "/preenchimento-labial/",
                      "vsl-lente-resina": "/lentes-em-resina-estratificada/",
                      "gluteo-max": "/procedimentos/"}.items():
         write(f"{old}/index.html", f'<!doctype html><meta charset="utf-8"><title>Redirecionando…</title>'

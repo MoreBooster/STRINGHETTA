@@ -10,6 +10,11 @@ if (toggle && nav) {
     const open = nav.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open);
   });
+  // fecha o menu ao tocar em um link (ex.: âncoras como #espaco-kids)
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }));
 }
 
 // Título surgindo palavra por palavra
@@ -318,4 +323,20 @@ if (autoVideos.length) {
     });
   }, { threshold: 0.2 });
   autoVideos.forEach((v) => { v.muted = true; vio.observe(v); });
+}
+
+// Espaço Kids: formas flutuantes acompanham a rolagem em velocidades diferentes
+const kidsShapes = [...document.querySelectorAll("[data-float]")];
+if (kidsShapes.length && !reduceMotion) {
+  const moveShapes = () => {
+    const vh = window.innerHeight;
+    kidsShapes.forEach((el) => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const offset = (r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.float);
+      el.style.transform = `translateY(${offset.toFixed(1)}px)`;
+    });
+  };
+  window.addEventListener("scroll", () => requestAnimationFrame(moveShapes), { passive: true });
+  moveShapes();
 }

@@ -24,6 +24,10 @@ sitemap.xml, robots.txt, 404.html
 2. Rode `python3 build.py` para regerar as páginas.
 3. Teste localmente: `python3 -m http.server 8080` e abra http://localhost:8080
 
+## Espaço Kids
+
+Seção da home com âncora `#espaco-kids` (link no menu). Textos, itens e a foto ficam na função `kids_section()` do `build.py`; para trocar a foto provisória, salve a imagem em `assets/img/` e ajuste o `src` da `kids-photo`.
+
 ## Visual
 
 Paleta creme e dourado, com variáveis no topo de `assets/css/style.css`, e fonte sem serifa Manrope.

@@ -599,9 +599,17 @@ section[id] { scroll-margin-top: 84px; }
   50% { border-radius: 44% 56% 40% 60% / 58% 42% 58% 42%; }
   100% { border-radius: 52% 48% 60% 40% / 42% 60% 40% 58%; }
 }
-.kids-mascot { position: absolute; width: 34%; left: -6%; bottom: -8%; filter: drop-shadow(0 10px 14px rgba(138,106,51,.25)); animation: kids-bounce 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+.kids-toy { position: absolute; z-index: 3; filter: drop-shadow(0 10px 12px rgba(138,106,51,.22)); transform-origin: 50% 100%; }
+.kids-toy--dino { width: 40%; left: -12%; bottom: -6%; animation: kids-bounce 2.8s ease-in-out infinite; }
+.kids-toy--doll { width: 21%; right: -5%; bottom: 4%; animation: kids-sway 3.4s ease-in-out infinite; }
+.kids-toy--bow { width: 24%; right: 6%; top: -6%; animation: kids-bow 4s ease-in-out infinite; transform-origin: 50% 50%; }
+.kids-toy--car { width: 32%; left: 26%; bottom: -12%; animation: kids-drive 5s ease-in-out infinite; }
+.kids-wheel { transform-box: fill-box; transform-origin: center; animation: kids-spin 1.2s linear infinite; }
+@keyframes kids-sway { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@keyframes kids-bow { 0%, 100% { transform: rotate(-8deg) scale(1); } 50% { transform: rotate(8deg) scale(1.08); } }
+@keyframes kids-drive { 0%, 100% { transform: translateX(-14px); } 50% { transform: translateX(14px) translateY(-2px); } }
+@keyframes kids-spin { to { transform: rotate(360deg); } }
 @keyframes kids-bounce { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-16px) rotate(3deg); } }
-.kids-sparkle { transform-origin: 160px 36px; animation: kids-twinkle 1.6s ease-in-out infinite; }
 @keyframes kids-twinkle { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.5); opacity: .4; } }
 
 .kids-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 80px; }
@@ -665,5 +673,5 @@ section[id] { scroll-margin-top: 84px; }
   .unit-body { padding: 26px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .kids-photo, .kids-mascot, .kids-sparkle, .kids-shape { animation: none; }
+  .kids-photo, .kids-toy, .kids-wheel, .kids-shape { animation: none; }
 }

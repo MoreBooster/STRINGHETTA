@@ -336,6 +336,7 @@ def kids_section():
     """Seção Espaço Kids da home (âncora #espaco-kids)."""
     # Brinquedos ilustrados (desenhos originais em SVG, na paleta creme e dourado)
     ink, ivory, cream, gold, gold2, soft = "#8a6a33", "#fffbf4", "#f4e3c3", "#c9a464", "#b08a4a", "#ead9b6"
+    ink, cream, gold, soft = "#3d2c5c", "#7ed957", "#ffd23f", "#c3f5a5"
     dino = f"""<svg class="kids-toy kids-toy--dino" viewBox="0 0 170 140" aria-hidden="true">
       <ellipse cx="80" cy="132" rx="58" ry="6" fill="rgba(138,106,51,.18)"/>
       <path d="M34 92 Q10 88 6 70 Q26 84 44 82" fill="{cream}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
@@ -349,6 +350,7 @@ def kids_section():
       <path d="M140 40q6 4 11-1" fill="none" stroke="#3a2e1c" stroke-width="3" stroke-linecap="round"/>
       <ellipse cx="132" cy="38" rx="4" ry="2.5" fill="{soft}"/>
     </svg>"""
+    cream, gold, gold2, soft, ivory = "#ffe0c7", "#ff7eb6", "#8d5524", "#ffb3c7", "#ffffff"
     doll = f"""<svg class="kids-toy kids-toy--doll" viewBox="0 0 120 170" aria-hidden="true">
       <ellipse cx="60" cy="164" rx="34" ry="5" fill="rgba(138,106,51,.18)"/>
       <circle cx="26" cy="40" r="12" fill="{gold2}" stroke="{ink}" stroke-width="3.5"/>
@@ -367,6 +369,7 @@ def kids_section():
       <ellipse cx="44" cy="63" rx="5" ry="3" fill="{soft}"/><ellipse cx="76" cy="63" rx="5" ry="3" fill="{soft}"/>
       <path d="M54 66q6 5 12 0" fill="none" stroke="#3a2e1c" stroke-width="3" stroke-linecap="round"/>
     </svg>"""
+    gold, gold2 = "#ff5d8f", "#e63970"
     bow = f"""<svg class="kids-toy kids-toy--bow" viewBox="0 0 140 110" aria-hidden="true">
       <path d="M62 52 L40 98 L54 92 L60 106 L70 60" fill="{gold2}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
       <path d="M78 52 L100 98 L86 92 L80 106 L70 60" fill="{gold2}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
@@ -375,6 +378,7 @@ def kids_section():
       <path d="M28 40 C34 32 48 34 56 44 M112 40 C106 32 92 34 84 44" fill="none" stroke="{ivory}" stroke-width="3" stroke-linecap="round" opacity=".7"/>
       <rect x="60" y="38" width="20" height="24" rx="8" fill="{gold2}" stroke="{ink}" stroke-width="4"/>
     </svg>"""
+    gold, gold2, soft, ivory, cream = "#4d9de0", "#ffd23f", "#bde0fe", "#ffffff", "#ffd23f"
     car = f"""<svg class="kids-toy kids-toy--car" viewBox="0 0 170 110" aria-hidden="true">
       <ellipse cx="86" cy="104" rx="66" ry="5" fill="rgba(138,106,51,.18)"/>
       <path d="M50 44 Q58 18 84 18 H104 Q122 18 132 44" fill="{ivory}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
@@ -384,8 +388,8 @@ def kids_section():
       <circle cx="150" cy="58" r="5" fill="{ivory}" stroke="{ink}" stroke-width="2.5"/>
       <rect x="22" y="54" width="10" height="7" rx="3" fill="{gold2}"/>
       <path d="M40 52 H140" stroke="{ivory}" stroke-width="3.5" stroke-linecap="round" opacity=".55"/>
-      <g class="kids-wheel"><circle cx="50" cy="84" r="16" fill="#5a4626" stroke="{ink}" stroke-width="4"/><circle cx="50" cy="84" r="6" fill="{cream}"/><path d="M50 72v24M38 84h24" stroke="{cream}" stroke-width="2.5"/></g>
-      <g class="kids-wheel"><circle cx="126" cy="84" r="16" fill="#5a4626" stroke="{ink}" stroke-width="4"/><circle cx="126" cy="84" r="6" fill="{cream}"/><path d="M126 72v24M114 84h24" stroke="{cream}" stroke-width="2.5"/></g>
+      <g class="kids-wheel"><circle cx="50" cy="84" r="16" fill="#3d2c5c" stroke="{ink}" stroke-width="4"/><circle cx="50" cy="84" r="6" fill="{cream}"/><path d="M50 72v24M38 84h24" stroke="{cream}" stroke-width="2.5"/></g>
+      <g class="kids-wheel"><circle cx="126" cy="84" r="16" fill="#3d2c5c" stroke="{ink}" stroke-width="4"/><circle cx="126" cy="84" r="6" fill="{cream}"/><path d="M126 72v24M114 84h24" stroke="{cream}" stroke-width="2.5"/></g>
     </svg>"""
     mascot = dino + doll + bow + car
     icons = {
@@ -413,7 +417,7 @@ def kids_section():
     <div class="kids-grid">
       <div class="kids-intro reveal">
         <span class="kids-badge">✦ Espaço Kids ✦</span>
-        <h2>Um cantinho feito para os pequenos</h2>
+        <h2>Um cantinho feito para os <span class="kids-rainbow">pequenos</span></h2>
         <p>Trouxe as crianças? Elas são super bem-vindas! Nosso Espaço Kids é um ambiente lúdico e aconchegante para os pequenos brincarem enquanto você aproveita o seu momento de autocuidado.</p>
         <a class="btn kids-btn" href="{wa_link("Olá! Quero saber mais sobre o Espaço Kids.")}" target="_blank" rel="noopener">Quero saber mais ↗</a>
       </div>

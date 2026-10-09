@@ -675,3 +675,52 @@ section[id] { scroll-margin-top: 84px; }
 @media (prefers-reduced-motion: reduce) {
   .kids-photo, .kids-toy, .kids-wheel, .kids-shape { animation: none; }
 }
+
+/* ===== Espaço Kids colorido ===== */
+.kids {
+  --k-pink: #ff7eb6; --k-coral: #ff8a65; --k-yellow: #ffd23f; --k-mint: #3ddc97;
+  --k-blue: #4d9de0; --k-lilac: #9b5de5; --k-ink: #3d2c5c;
+  color: var(--k-ink);
+  background:
+    radial-gradient(circle, rgba(255,126,182,.45) 0 5px, transparent 5.5px) 0 0 / 260px 230px,
+    radial-gradient(circle, rgba(255,210,63,.55) 0 6px, transparent 6.5px) 130px 120px / 300px 260px,
+    radial-gradient(circle, rgba(61,220,151,.4) 0 4px, transparent 4.5px) 60px 180px / 280px 300px,
+    radial-gradient(circle, rgba(77,157,224,.4) 0 4px, transparent 4.5px) 200px 40px / 320px 240px,
+    linear-gradient(160deg, #fff6d9 0%, #ffe6f1 45%, #e3f2ff 100%);
+}
+.kids h2, .kids-card h3 { color: var(--k-ink); }
+.kids-intro p { color: #5b4a7a; }
+.kids-rainbow {
+  background: linear-gradient(90deg, var(--k-coral), var(--k-pink), var(--k-lilac), var(--k-blue), var(--k-mint));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 200% 100%; animation: kids-rainbow 6s linear infinite;
+}
+@keyframes kids-rainbow { to { background-position: 200% 0; } }
+.kids-badge { background: var(--k-yellow); color: var(--k-ink); border-color: var(--k-pink); box-shadow: 0 6px 0 var(--k-pink); }
+.kids-btn { background: var(--k-coral); box-shadow: 0 6px 0 #d9603f; }
+.kids-btn:hover { background: #ff7a50; box-shadow: 0 3px 0 #d9603f; }
+.kids-photo {
+  border-color: #fff;
+  box-shadow: 0 0 0 10px var(--k-yellow), 0 0 0 20px var(--k-pink), 0 0 0 30px var(--k-blue), 0 30px 60px rgba(61,44,92,.22);
+}
+.kids-card { border-color: #fff; }
+.kids-card:nth-child(1) { box-shadow: 0 8px 0 var(--k-pink); }
+.kids-card:nth-child(2) { box-shadow: 0 8px 0 var(--k-yellow); }
+.kids-card:nth-child(3) { box-shadow: 0 8px 0 var(--k-mint); }
+.kids-card:nth-child(4) { box-shadow: 0 8px 0 var(--k-blue); }
+.kids-card:hover { border-color: currentColor; }
+.kids-card:nth-child(1) .kids-icon { background: var(--k-pink); }
+.kids-card:nth-child(2) .kids-icon { background: var(--k-yellow); }
+.kids-card:nth-child(3) .kids-icon { background: var(--k-mint); }
+.kids-card:nth-child(4) .kids-icon { background: var(--k-blue); }
+.kids-icon { box-shadow: 0 6px 0 rgba(61,44,92,.18); }
+.kids-icon svg { fill: #fff; }
+.kids-card p { color: #6b5b8a; }
+.kids-toy { filter: drop-shadow(0 10px 12px rgba(61,44,92,.2)); }
+.kids-shape--star { background: var(--k-yellow); }
+.kids-shape--star2 { background: var(--k-pink); }
+.kids-shape--circle { border-color: var(--k-mint); }
+.kids-shape--cloud { background: #fff; }
+.kids-shape--squiggle { background: radial-gradient(circle at 10px 26px, transparent 9px, var(--k-lilac) 10px 13px, transparent 14px) 0 -13px / 26px 26px repeat-x; }
+.kids-shape--dot { background: var(--k-coral); }
+@media (prefers-reduced-motion: reduce) { .kids-rainbow { animation: none; } }

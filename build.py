@@ -262,6 +262,7 @@ def units_section():
       <h3>{escape(u['name'])}</h3>
       <p>{escape(u['address'])}<br>{escape(u['city'])}</p>
       <p>{escape(CONFIG['hours'])}</p>
+      <p><a class="unit-phone" href="{wa_link(f"Olá! Gostaria de agendar na {u['name']}.")}" target="_blank" rel="noopener">WhatsApp {CONFIG['phone']}</a></p>
       <div class="location-actions">
         <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query={q}" target="_blank" rel="noopener">Como chegar ↗</a>
         <a class="btn btn--outline" href="https://waze.com/ul?q={q}&navigate=yes" target="_blank" rel="noopener">Waze</a>
@@ -442,7 +443,7 @@ def home():
   <div class="hero-rays" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy" data-hero-copy>
-      <span class="hero-kicker">+53.000 autoestimas renovadas</span>
+      <span class="hero-kicker">+53.000 vidas transformadas</span>
       <h1>Realce a sua <br>beleza natural</h1>
       <p class="lead">Odontologia e estética com planejamento individual <br>e resultados naturais, no Tatuapé e em Moema.</p>
       <div class="hero-actions">
@@ -459,7 +460,7 @@ def home():
     </div>
     <a class="strip-card strip-card--image reveal" href="/procedimentos/">
       <img src="{placeholder('Procedimentos', 600, 600)}" alt="Procedimentos" width="600" height="600">
-      <span class="strip-label">+30 procedimentos ↗</span>
+      <span class="strip-label">Nossos procedimentos ↗</span>
     </a>
     <div class="strip-card strip-card--light reveal">
       <h3>Avaliação personalizada</h3>
@@ -474,8 +475,7 @@ def home():
 
 <section class="section section--brand"><div class="container">
   <div class="stats">
-    <div class="stat reveal"><strong data-count="53" data-prefix="+" data-suffix=" mil">+53 mil</strong><span>pacientes atendidos</span></div>
-    <div class="stat reveal"><strong data-count="30" data-prefix="+">+30</strong><span>procedimentos</span></div>
+    <div class="stat reveal"><strong data-count="53" data-prefix="+" data-suffix=" mil">+53 mil</strong><span>vidas transformadas</span></div>
     <div class="stat reveal"><strong data-count="2">2</strong><span>unidades em São Paulo</span></div>
     <div class="stat reveal"><strong data-count="5" data-decimals="1">5.0</strong><span>nota no Google</span></div>
   </div>
@@ -514,7 +514,7 @@ def home():
 {testimonials_section()}
 {videos_section()}
 {units_section()}
-{marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+53.000 autoestimas renovadas"], reverse=True)}
+{marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+53.000 vidas transformadas"], reverse=True)}
 {cta_section("Fale com um especialista")}
 """
     return page(CONFIG["name"], "Clínica de odontologia e estética com unidades no Tatuapé e em Moema, São Paulo. Reestruturação facial, preenchimento labial, Ulthera, lentes em resina e mais.", body, "home")

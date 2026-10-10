@@ -36,7 +36,7 @@ CONFIG = {
 PROCEDURES = [
     {
         "slug": "preenchimento-labial", "title": "Preenchimento labial", "category": "estetica", "icon": "◡",
-        "image": "/assets/img/preenchimento-labial.jpg", "image_alt": "Lábios de paciente após preenchimento labial",
+        "image": "/assets/img/preenchimento-labial.jpg", "image_alt": "Paciente da clínica após preenchimento labial",
         "short": "Volume, contorno e hidratação para lábios mais harmoniosos com ácido hialurônico.",
         "intro": "Com ácido hialurônico de alta qualidade, o preenchimento labial devolve volume, define o contorno e melhora a hidratação, sempre respeitando as proporções do seu rosto.",
         "benefits": ["Contorno e volume sob medida", "Correção de assimetrias",
@@ -47,6 +47,7 @@ PROCEDURES = [
     },
     {
         "slug": "ulthera", "title": "Ulthera", "category": "estetica", "icon": "◌",
+        "image": "/assets/img/ulthera.jpg", "image_alt": "Paciente da clínica após tratamento com Ulthera",
         "short": "Ultrassom microfocado com visualização em tempo real para lifting e firmeza sem cirurgia.",
         "intro": "O Ulthera permite visualizar as camadas da pele durante a aplicação, direcionando a energia com precisão para estimular colágeno e promover efeito lifting em rosto, pescoço e colo.",
         "benefits": ["Lifting não cirúrgico", "Aplicação guiada por imagem",
@@ -56,6 +57,7 @@ PROCEDURES = [
     },
     {
         "slug": "lavieen", "title": "Laser Lavieen", "category": "estetica", "icon": "✧",
+        "image": "/assets/img/lavieen.jpg", "image_alt": "Paciente da clínica após tratamento com Laser Lavieen",
         "short": "Laser para viço, textura, manchas e poros, com recuperação rápida.",
         "intro": "O Lavieen é um laser de túlio que renova a superfície da pele, tratando manchas, poros dilatados e textura irregular, e devolvendo o viço com pouco tempo de recuperação.",
         "benefits": ["Pele mais uniforme e luminosa", "Tratamento de manchas e melasma",
@@ -65,6 +67,7 @@ PROCEDURES = [
     },
     {
         "slug": "reestruturacao-facial", "title": "Reestruturação facial", "category": "estetica", "icon": "◇",
+        "image": "/assets/img/reestruturacao-facial.jpg", "image_alt": "Paciente da clínica após reestruturação facial",
         "short": "Devolve sustentação, contorno e volume ao rosto, com resultado natural e rejuvenescido.",
         "intro": "A reestruturação facial trata a perda de sustentação e de volume que acontece com o tempo. A partir da análise da estrutura do seu rosto, combinamos técnicas como preenchimento com ácido hialurônico e bioestimuladores de colágeno para reposicionar, firmar e redefinir contornos.",
         "benefits": ["Planejamento a partir da estrutura do rosto", "Mais sustentação e definição do contorno",
@@ -75,6 +78,7 @@ PROCEDURES = [
     },
     {
         "slug": "bioestimulador", "title": "Bioestimulador de colágeno", "category": "estetica", "icon": "✺",
+        "image": "/assets/img/bioestimulador.jpg", "image_alt": "Paciente da clínica em tratamento com bioestimulador de colágeno",
         "short": "Estimula a produção de colágeno para mais firmeza e qualidade da pele.",
         "intro": "Os bioestimuladores ativam a produção natural de colágeno, tratando flacidez e melhorando a textura da pele de forma gradual e duradoura.",
         "benefits": ["Mais firmeza e sustentação", "Melhora da textura da pele",
@@ -83,6 +87,7 @@ PROCEDURES = [
     },
     {
         "slug": "clareamento-dental", "title": "Clareamento dental", "category": "odonto", "icon": "☼",
+        "image": "/assets/img/clareamento-dental.jpg", "image_alt": "Sorriso de paciente após clareamento dental",
         "short": "Dentes mais brancos com técnicas seguras em consultório ou em casa.",
         "intro": "O clareamento dental remove pigmentações e deixa o sorriso vários tons mais claro, com protocolos que preservam o esmalte e controlam a sensibilidade.",
         "benefits": ["Opções em consultório e caseira", "Controle de sensibilidade",

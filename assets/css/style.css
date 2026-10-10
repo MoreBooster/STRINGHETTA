@@ -740,3 +740,4 @@ section[id] { scroll-margin-top: 84px; }
 .whats-float { background: #25d366; color: #fff; box-shadow: 0 10px 28px rgba(37,211,102,.45); }
 .whats-float:hover { background: #1ebe5a; }
 .whats-float::before { border-color: #25d366; }
+.social svg path:not([fill]) { fill: currentColor; }

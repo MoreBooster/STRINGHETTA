@@ -480,7 +480,7 @@ p { margin: 0 0 1em; }
 }
 
 /* Card de antes e depois no hero */
-.strip-card--photo img { object-position: center 40%; }
+.strip-card--photo img { object-position: center 45%; }
 .ba-label { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: space-around; pointer-events: none; }
 .ba-label span {
   font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink);

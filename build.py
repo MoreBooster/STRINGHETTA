@@ -64,12 +64,13 @@ PROCEDURES = [
         "wa": "Vi sobre os protocolos com Laser Lavieen no site e quero saber mais!",
     },
     {
-        "slug": "harmonizacao-facial", "title": "Harmonização facial", "category": "estetica", "icon": "◇",
-        "short": "Conjunto de procedimentos que equilibra proporções e realça a beleza do rosto.",
-        "intro": "A harmonização facial combina técnicas como preenchimentos, toxina botulínica e bioestimuladores em um plano único, desenhado a partir da análise do seu rosto.",
-        "benefits": ["Planejamento facial individual", "Equilíbrio entre queixo, mandíbula e maçãs do rosto",
-                     "Combinação de técnicas minimamente invasivas", "Resultados progressivos e naturais"],
-        "faq": [("Quantas sessões são necessárias?", "Depende do plano. Muitos casos são resolvidos em 1 ou 2 sessões."),
+        "slug": "reestruturacao-facial", "title": "Reestruturação facial", "category": "estetica", "icon": "◇",
+        "short": "Devolve sustentação, contorno e volume ao rosto, com resultado natural e rejuvenescido.",
+        "intro": "A reestruturação facial trata a perda de sustentação e de volume que acontece com o tempo. A partir da análise da estrutura do seu rosto, combinamos técnicas como preenchimento com ácido hialurônico e bioestimuladores de colágeno para reposicionar, firmar e redefinir contornos.",
+        "benefits": ["Planejamento a partir da estrutura do rosto", "Mais sustentação e definição do contorno",
+                     "Reposição de volume perdido com o tempo", "Aparência descansada e natural"],
+        "faq": [("Quantas sessões são necessárias?", "Depende do plano definido na avaliação. Muitos casos são resolvidos em 1 ou 2 sessões, com manutenção ao longo do tempo."),
+                ("O resultado fica artificial?", "Não. O objetivo é restaurar a estrutura do rosto respeitando seus traços, sem exageros."),
                 ("Quem pode fazer?", "Adultos saudáveis após avaliação presencial com nossos especialistas.")],
     },
     {
@@ -100,7 +101,7 @@ PROCEDURES = [
     },
 ]
 
-FEATURED = ["preenchimento-labial", "harmonizacao-facial", "ulthera", "lavieen", "bioestimulador", "lentes-em-resina-estratificada"]
+FEATURED = ["preenchimento-labial", "reestruturacao-facial", "ulthera", "lavieen", "bioestimulador", "lentes-em-resina-estratificada"]
 
 CATEGORIES = {
     "estetica": "Estética facial",
@@ -516,7 +517,7 @@ def home():
 {marquee(["Realce a sua beleza natural", "Tatuapé", "Moema", "+53.000 autoestimas renovadas"], reverse=True)}
 {cta_section("Fale com um especialista")}
 """
-    return page(CONFIG["name"], "Clínica de odontologia e estética com unidades no Tatuapé e em Moema, São Paulo. Harmonização facial, preenchimento labial, Ulthera, lentes em resina e mais.", body, "home")
+    return page(CONFIG["name"], "Clínica de odontologia e estética com unidades no Tatuapé e em Moema, São Paulo. Reestruturação facial, preenchimento labial, Ulthera, lentes em resina e mais.", body, "home")
 
 
 def procedures_index():
@@ -649,7 +650,7 @@ def main():
                      "botox-captura": "/procedimentos/", "botox": "/procedimentos/",
                      "ultraformer": "/ulthera/", "implante-dentario": "/procedimentos/",
                      "protese-dentaria": "/procedimentos/", "ortodontia": "/procedimentos/",
-                     "nutricionista": "/procedimentos/", "vsl-preenchimento": "/preenchimento-labial/",
+                     "nutricionista": "/procedimentos/", "harmonizacao-facial": "/reestruturacao-facial/", "vsl-preenchimento": "/preenchimento-labial/",
                      "vsl-lente-resina": "/lentes-em-resina-estratificada/",
                      "gluteo-max": "/procedimentos/"}.items():
         write(f"{old}/index.html", f'<!doctype html><meta charset="utf-8"><title>Redirecionando…</title>'

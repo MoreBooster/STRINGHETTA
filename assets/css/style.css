@@ -741,3 +741,84 @@ section[id] { scroll-margin-top: 84px; }
 .whats-float:hover { background: #1ebe5a; }
 .whats-float::before { border-color: #25d366; }
 .social svg path:not([fill]) { fill: currentColor; }
+
+/* ===== Espaço Kids no clima da sala: céu azul, árvores, leão e girafa ===== */
+.kids {
+  --k-sky: #8fd0ef; --k-sky-2: #d6eefa; --k-yellow: #ffd23f; --k-sun: #ffc93c; --k-green: #7cc46b;
+  --k-orange: #f08a24; --k-blue: #3b8fd1; --k-ink: #1f4466;
+  padding-bottom: 210px;
+  background:
+    radial-gradient(ellipse 90px 34px at 38% 12%, #fff 98%, transparent),
+    radial-gradient(ellipse 60px 26px at 42% 9%, #fff 98%, transparent),
+    radial-gradient(ellipse 110px 38px at 82% 14%, rgba(255,255,255,.95) 98%, transparent),
+    radial-gradient(ellipse 70px 28px at 77% 11%, rgba(255,255,255,.95) 98%, transparent),
+    radial-gradient(ellipse 80px 28px at 52% 8%, rgba(255,255,255,.8) 98%, transparent),
+    linear-gradient(180deg, var(--k-sky) 0%, #b5e1f5 45%, var(--k-sky-2) 100%);
+}
+.kids h2, .kids-card h3 { color: var(--k-ink); }
+.kids-intro p { color: #2c4f6e; }
+.kids-rainbow { background-image: linear-gradient(90deg, var(--k-orange), var(--k-sun), #8cc63f, var(--k-orange)); }
+.kids-badge { background: var(--k-yellow); color: var(--k-ink); border-color: #fff; box-shadow: 0 6px 0 var(--k-orange); }
+.kids-btn { background: var(--k-orange); box-shadow: 0 6px 0 #c76a12; }
+.kids-btn:hover { background: #f59a3c; box-shadow: 0 3px 0 #c76a12; }
+.kids-photo { box-shadow: 0 0 0 10px var(--k-yellow), 0 0 0 20px #fff, 0 0 0 30px var(--k-green), 0 30px 60px rgba(31,68,102,.25); }
+.kids-photo img { object-position: center 60%; }
+
+/* sol */
+.kids-sun {
+  position: absolute; z-index: 1; top: 70px; right: 6%; width: 110px; height: 110px; border-radius: 50%;
+  background: radial-gradient(circle, #ffe27a 0 45%, var(--k-sun) 46% 60%, transparent 61%);
+  animation: kids-sun 30s linear infinite;
+}
+.kids-sun::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: repeating-conic-gradient(var(--k-sun) 0 10deg, transparent 10deg 30deg);
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 63% 100%); mask: radial-gradient(circle, transparent 62%, #000 63% 100%);
+}
+@keyframes kids-sun { to { rotate: 360deg; } }
+
+/* colinas no pé da seção */
+.kids-hills { position: absolute; left: 0; bottom: 0; width: 100%; height: 220px; z-index: 1; }
+.kids-wave--bottom { z-index: 2; }
+.kids-wave--bottom path { fill: var(--ivory); }
+
+/* bichinhos e árvores ao redor da foto */
+.kids-toy--tree { width: 30%; left: -16%; bottom: 2%; z-index: 2; animation: kids-sway 5s ease-in-out infinite; transform-origin: 50% 100%; }
+.kids-toy--giraffe { width: 30%; left: -4%; bottom: -10%; animation: kids-bounce 3.2s ease-in-out infinite; }
+.kids-toy--lion { width: 31%; right: -8%; bottom: -8%; animation: kids-bounce 2.6s ease-in-out infinite reverse; }
+.kids-toy--bird { width: 15%; right: 10%; top: -2%; animation: kids-bird 2.4s ease-in-out infinite; }
+@keyframes kids-bird { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-12px) rotate(6deg); } }
+
+/* cards em amarelo, verde, azul e laranja */
+.kids-card:nth-child(1) { box-shadow: 0 8px 0 var(--k-yellow); }
+.kids-card:nth-child(2) { box-shadow: 0 8px 0 var(--k-green); }
+.kids-card:nth-child(3) { box-shadow: 0 8px 0 var(--k-blue); }
+.kids-card:nth-child(4) { box-shadow: 0 8px 0 var(--k-orange); }
+.kids-card:nth-child(1) .kids-icon { background: var(--k-yellow); }
+.kids-card:nth-child(2) .kids-icon { background: var(--k-green); }
+.kids-card:nth-child(3) .kids-icon { background: var(--k-blue); }
+.kids-card:nth-child(4) .kids-icon { background: var(--k-orange); }
+.kids-card p { color: #4a6580; }
+
+/* formas flutuantes viram nuvens e passarinhos de fundo */
+.kids-shape--star { background: var(--k-yellow); }
+.kids-shape--star2 { background: #fff; }
+.kids-shape--circle { border-color: rgba(255,255,255,.8); }
+.kids-shape--squiggle { background: radial-gradient(circle at 10px 26px, transparent 9px, #fff 10px 13px, transparent 14px) 0 -13px / 26px 26px repeat-x; opacity: .8; }
+.kids-shape--dot { background: var(--k-orange); }
+
+@media (max-width: 600px) {
+  .kids { padding-bottom: 170px; }
+  .kids-sun { width: 70px; height: 70px; top: 40px; right: 4%; }
+  .kids-hills { height: 160px; }
+  .kids-toy--tree { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .kids-sun { animation: none; } }
+@media (max-width: 760px) {
+  .kids {
+    background:
+      radial-gradient(ellipse 60px 22px at 30% 4%, #fff 98%, transparent),
+      radial-gradient(ellipse 40px 16px at 36% 3%, #fff 98%, transparent),
+      linear-gradient(180deg, var(--k-sky) 0%, #b5e1f5 45%, var(--k-sky-2) 100%);
+  }
+}

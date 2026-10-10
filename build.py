@@ -341,64 +341,63 @@ def videos_section():
 
 def kids_section():
     """Seção Espaço Kids da home (âncora #espaco-kids)."""
-    # Brinquedos ilustrados (desenhos originais em SVG, na paleta creme e dourado)
-    ink, ivory, cream, gold, gold2, soft = "#8a6a33", "#fffbf4", "#f4e3c3", "#c9a464", "#b08a4a", "#ead9b6"
-    ink, cream, gold, soft = "#3d2c5c", "#7ed957", "#ffd23f", "#c3f5a5"
-    dino = f"""<svg class="kids-toy kids-toy--dino" viewBox="0 0 170 140" aria-hidden="true">
-      <ellipse cx="80" cy="132" rx="58" ry="6" fill="rgba(138,106,51,.18)"/>
-      <path d="M34 92 Q10 88 6 70 Q26 84 44 82" fill="{cream}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M52 62l6-14 8 13 8-15 8 15 8-13 6 14" fill="{gold}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
-      <ellipse cx="74" cy="90" rx="42" ry="28" fill="{cream}" stroke="{ink}" stroke-width="4"/>
-      <path d="M100 76 Q108 46 116 32 Q122 16 140 18 Q158 22 154 38 Q150 50 134 48 Q126 64 114 92" fill="{cream}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <rect x="44" y="104" width="16" height="24" rx="7" fill="{cream}" stroke="{ink}" stroke-width="4"/>
-      <rect x="84" y="104" width="16" height="24" rx="7" fill="{cream}" stroke="{ink}" stroke-width="4"/>
-      <circle cx="62" cy="88" r="6" fill="{soft}"/><circle cx="80" cy="98" r="4.5" fill="{soft}"/><circle cx="90" cy="82" r="3.5" fill="{soft}"/>
-      <circle cx="140" cy="30" r="4.5" fill="#3a2e1c"/><circle cx="141.5" cy="28.5" r="1.5" fill="#fff"/>
-      <path d="M140 40q6 4 11-1" fill="none" stroke="#3a2e1c" stroke-width="3" stroke-linecap="round"/>
-      <ellipse cx="132" cy="38" rx="4" ry="2.5" fill="{soft}"/>
+    # Bichinhos e árvores ilustrados (desenhos originais em SVG, no clima da sala kids)
+    ink = "#5b3a1e"
+    giraffe = f"""<svg class="kids-toy kids-toy--giraffe" viewBox="0 0 150 230" aria-hidden="true">
+      <ellipse cx="78" cy="224" rx="50" ry="6" fill="rgba(35,71,107,.18)"/>
+      <rect x="44" y="160" width="14" height="60" rx="7" fill="#f7c948" stroke="{ink}" stroke-width="3.5"/>
+      <rect x="92" y="160" width="14" height="60" rx="7" fill="#f7c948" stroke="{ink}" stroke-width="3.5"/>
+      <path d="M38 132 Q36 172 76 174 Q118 176 116 136 Q112 118 76 118 Q42 118 38 132z" fill="#f7c948" stroke="{ink}" stroke-width="4"/>
+      <path d="M112 140 Q126 146 128 160" fill="none" stroke="{ink}" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="129" cy="163" r="4" fill="#c97a2b"/>
+      <path d="M86 124 L94 54 L114 54 L110 128z" fill="#f7c948" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="108" cy="40" rx="26" ry="20" fill="#f7c948" stroke="{ink}" stroke-width="4"/>
+      <ellipse cx="128" cy="48" rx="12" ry="9" fill="#ffe7a8" stroke="{ink}" stroke-width="3"/>
+      <circle cx="125" cy="46" r="1.6" fill="{ink}"/><circle cx="131" cy="46" r="1.6" fill="{ink}"/>
+      <path d="M97 14 L95 4" stroke="{ink}" stroke-width="3.5" stroke-linecap="round"/><circle cx="95" cy="4" r="4" fill="#c97a2b"/>
+      <path d="M108 14 L109 3" stroke="{ink}" stroke-width="3.5" stroke-linecap="round"/><circle cx="109" cy="3" r="4" fill="#c97a2b"/>
+      <ellipse cx="86" cy="28" rx="10" ry="5" fill="#f7c948" stroke="{ink}" stroke-width="3" transform="rotate(-25 86 28)"/>
+      <circle cx="110" cy="34" r="4" fill="#2b1d10"/><circle cx="111.4" cy="32.6" r="1.3" fill="#fff"/>
+      <ellipse cx="101" cy="46" rx="5" ry="3" fill="#ffb3a7" opacity=".8"/>
+      <circle cx="58" cy="138" r="7" fill="#c97a2b"/><circle cx="80" cy="150" r="6" fill="#c97a2b"/><circle cx="98" cy="134" r="6.5" fill="#c97a2b"/>
+      <circle cx="62" cy="160" r="5" fill="#c97a2b"/><circle cx="100" cy="88" r="5" fill="#c97a2b"/><circle cx="104" cy="110" r="4.5" fill="#c97a2b"/>
+      <path d="M94 56 Q86 58 84 66 M92 72 Q84 74 83 82 M90 90 Q82 92 82 100" fill="none" stroke="#c97a2b" stroke-width="5" stroke-linecap="round"/>
     </svg>"""
-    cream, gold, gold2, soft, ivory = "#ffe0c7", "#ff7eb6", "#8d5524", "#ffb3c7", "#ffffff"
-    doll = f"""<svg class="kids-toy kids-toy--doll" viewBox="0 0 120 170" aria-hidden="true">
-      <ellipse cx="60" cy="164" rx="34" ry="5" fill="rgba(138,106,51,.18)"/>
-      <circle cx="26" cy="40" r="12" fill="{gold2}" stroke="{ink}" stroke-width="3.5"/>
-      <circle cx="94" cy="40" r="12" fill="{gold2}" stroke="{ink}" stroke-width="3.5"/>
-      <rect x="44" y="132" width="10" height="26" rx="5" fill="{cream}" stroke="{ink}" stroke-width="3.5"/>
-      <rect x="66" y="132" width="10" height="26" rx="5" fill="{cream}" stroke="{ink}" stroke-width="3.5"/>
-      <path d="M32 92 Q20 108 18 118" stroke="{ink}" stroke-width="10" stroke-linecap="round"/>
-      <path d="M32 92 Q20 108 18 118" stroke="{cream}" stroke-width="4" stroke-linecap="round"/>
-      <path d="M88 92 Q100 108 102 118" stroke="{ink}" stroke-width="10" stroke-linecap="round"/>
-      <path d="M88 92 Q100 108 102 118" stroke="{cream}" stroke-width="4" stroke-linecap="round"/>
-      <path d="M42 80 H78 L94 138 H26 Z" fill="{gold}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M32 120 H88" stroke="{ivory}" stroke-width="4" stroke-dasharray="2 7" stroke-linecap="round"/>
-      <circle cx="60" cy="50" r="30" fill="{cream}" stroke="{ink}" stroke-width="4"/>
-      <path d="M31 46 Q34 20 60 20 Q86 20 89 46 Q74 34 60 38 Q46 34 31 46z" fill="{gold2}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
-      <circle cx="50" cy="54" r="3.8" fill="#3a2e1c"/><circle cx="70" cy="54" r="3.8" fill="#3a2e1c"/>
-      <ellipse cx="44" cy="63" rx="5" ry="3" fill="{soft}"/><ellipse cx="76" cy="63" rx="5" ry="3" fill="{soft}"/>
-      <path d="M54 66q6 5 12 0" fill="none" stroke="#3a2e1c" stroke-width="3" stroke-linecap="round"/>
+    lion = f"""<svg class="kids-toy kids-toy--lion" viewBox="0 0 170 180" aria-hidden="true">
+      <ellipse cx="86" cy="174" rx="56" ry="6" fill="rgba(35,71,107,.18)"/>
+      <path d="M128 140 Q156 140 152 112" fill="none" stroke="{ink}" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="152" cy="108" r="8" fill="#e8742a" stroke="{ink}" stroke-width="3"/>
+      <path d="M44 118 Q40 168 86 168 Q132 168 128 118 Q120 96 86 96 Q52 96 44 118z" fill="#f7c948" stroke="{ink}" stroke-width="4"/>
+      <ellipse cx="62" cy="164" rx="14" ry="8" fill="#f7c948" stroke="{ink}" stroke-width="3.5"/>
+      <ellipse cx="110" cy="164" rx="14" ry="8" fill="#f7c948" stroke="{ink}" stroke-width="3.5"/>
+      <g fill="#e8742a" stroke="{ink}" stroke-width="3.5">
+        <circle cx="86" cy="18" r="16"/><circle cx="116" cy="26" r="16"/><circle cx="134" cy="52" r="16"/><circle cx="134" cy="82" r="16"/>
+        <circle cx="116" cy="104" r="16"/><circle cx="86" cy="112" r="16"/><circle cx="56" cy="104" r="16"/><circle cx="38" cy="82" r="16"/>
+        <circle cx="38" cy="52" r="16"/><circle cx="56" cy="26" r="16"/>
+      </g>
+      <circle cx="86" cy="65" r="44" fill="#e8742a"/>
+      <circle cx="58" cy="34" r="10" fill="#f7c948" stroke="{ink}" stroke-width="3"/><circle cx="114" cy="34" r="10" fill="#f7c948" stroke="{ink}" stroke-width="3"/>
+      <circle cx="86" cy="66" r="36" fill="#f7c948" stroke="{ink}" stroke-width="4"/>
+      <circle cx="73" cy="58" r="4.5" fill="#2b1d10"/><circle cx="99" cy="58" r="4.5" fill="#2b1d10"/>
+      <circle cx="74.5" cy="56.5" r="1.5" fill="#fff"/><circle cx="100.5" cy="56.5" r="1.5" fill="#fff"/>
+      <ellipse cx="86" cy="80" rx="15" ry="11" fill="#ffe7a8"/>
+      <path d="M80 72 h12 l-6 7z" fill="#8a4b22"/>
+      <path d="M86 79 v4 M86 83 q-6 6 -11 1 M86 83 q6 6 11 1" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>
+      <ellipse cx="64" cy="76" rx="6" ry="3.5" fill="#ffb3a7" opacity=".8"/><ellipse cx="108" cy="76" rx="6" ry="3.5" fill="#ffb3a7" opacity=".8"/>
     </svg>"""
-    gold, gold2 = "#ff5d8f", "#e63970"
-    bow = f"""<svg class="kids-toy kids-toy--bow" viewBox="0 0 140 110" aria-hidden="true">
-      <path d="M62 52 L40 98 L54 92 L60 106 L70 60" fill="{gold2}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
-      <path d="M78 52 L100 98 L86 92 L80 106 L70 60" fill="{gold2}" stroke="{ink}" stroke-width="3.5" stroke-linejoin="round"/>
-      <path d="M70 50 C50 20 10 14 12 42 C14 70 52 66 70 50z" fill="{gold}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M70 50 C90 20 130 14 128 42 C126 70 88 66 70 50z" fill="{gold}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M28 40 C34 32 48 34 56 44 M112 40 C106 32 92 34 84 44" fill="none" stroke="{ivory}" stroke-width="3" stroke-linecap="round" opacity=".7"/>
-      <rect x="60" y="38" width="20" height="24" rx="8" fill="{gold2}" stroke="{ink}" stroke-width="4"/>
+    tree = """<svg class="kids-toy kids-toy--tree" viewBox="0 0 120 200" aria-hidden="true">
+      <path d="M54 196 V110 M54 140 L32 118 M54 128 L76 108" stroke="#a0663a" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="58" cy="62" r="52" fill="#7cc46b"/><circle cx="34" cy="78" r="30" fill="#5aa84f"/>
+      <circle cx="80" cy="44" r="10" fill="#9bd889"/><circle cx="40" cy="40" r="7" fill="#9bd889"/>
     </svg>"""
-    gold, gold2, soft, ivory, cream = "#4d9de0", "#ffd23f", "#bde0fe", "#ffffff", "#ffd23f"
-    car = f"""<svg class="kids-toy kids-toy--car" viewBox="0 0 170 110" aria-hidden="true">
-      <ellipse cx="86" cy="104" rx="66" ry="5" fill="rgba(138,106,51,.18)"/>
-      <path d="M50 44 Q58 18 84 18 H104 Q122 18 132 44" fill="{ivory}" stroke="{ink}" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M62 44 Q66 28 82 28 H90 V44 Z" fill="{soft}" stroke="{ink}" stroke-width="3"/>
-      <path d="M98 28 H104 Q116 28 120 44 H98 Z" fill="{soft}" stroke="{ink}" stroke-width="3"/>
-      <rect x="16" y="42" width="144" height="40" rx="18" fill="{gold}" stroke="{ink}" stroke-width="4"/>
-      <circle cx="150" cy="58" r="5" fill="{ivory}" stroke="{ink}" stroke-width="2.5"/>
-      <rect x="22" y="54" width="10" height="7" rx="3" fill="{gold2}"/>
-      <path d="M40 52 H140" stroke="{ivory}" stroke-width="3.5" stroke-linecap="round" opacity=".55"/>
-      <g class="kids-wheel"><circle cx="50" cy="84" r="16" fill="#3d2c5c" stroke="{ink}" stroke-width="4"/><circle cx="50" cy="84" r="6" fill="{cream}"/><path d="M50 72v24M38 84h24" stroke="{cream}" stroke-width="2.5"/></g>
-      <g class="kids-wheel"><circle cx="126" cy="84" r="16" fill="#3d2c5c" stroke="{ink}" stroke-width="4"/><circle cx="126" cy="84" r="6" fill="{cream}"/><path d="M126 72v24M114 84h24" stroke="{cream}" stroke-width="2.5"/></g>
+    bird = """<svg class="kids-toy kids-toy--bird" viewBox="0 0 90 70" aria-hidden="true">
+      <ellipse cx="42" cy="40" rx="28" ry="22" fill="#ffd23f" stroke="#5b3a1e" stroke-width="3"/>
+      <path d="M30 40 Q38 26 52 36" fill="#f7b32b" stroke="#5b3a1e" stroke-width="2.5"/>
+      <path d="M68 36 L84 40 L68 46z" fill="#f08a24" stroke="#5b3a1e" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="56" cy="32" r="3.5" fill="#2b1d10"/><circle cx="57" cy="31" r="1.1" fill="#fff"/>
+      <path d="M36 62 v6 M46 62 v6" stroke="#f08a24" stroke-width="3" stroke-linecap="round"/>
     </svg>"""
-    mascot = dino + doll + bow + car
+    mascot = tree + giraffe + lion + bird
     icons = {
         "play": '<svg viewBox="0 0 48 48"><rect x="6" y="20" width="16" height="16" rx="3"/><rect x="26" y="20" width="16" height="16" rx="3"/><rect x="16" y="6" width="16" height="14" rx="3"/></svg>',
         "art": '<svg viewBox="0 0 48 48"><path d="M24 6C13 6 6 14 6 23c0 9 7 15 13 15 4 0 4-3 3-5-1-3 1-5 4-5h6c6 0 10-4 10-10C42 11 34 6 24 6z"/><circle cx="16" cy="20" r="3" fill="#fffbf4"/><circle cx="24" cy="14" r="3" fill="#fffbf4"/><circle cx="33" cy="18" r="3" fill="#fffbf4"/></svg>',
@@ -429,12 +428,17 @@ def kids_section():
         <a class="btn kids-btn" href="{wa_link("Olá! Quero saber mais sobre o Espaço Kids.")}" target="_blank" rel="noopener">Quero saber mais ↗</a>
       </div>
       <div class="kids-visual reveal">
-        <div class="kids-photo"><img src="{placeholder('Foto do Espaço Kids', 800, 800)}" alt="Espaço Kids da Clínica Stringhetta" loading="lazy" width="800" height="800"></div>
+        <div class="kids-photo"><img src="/assets/img/espaco-kids.jpg" alt="Sala do Espaço Kids da Clínica Stringhetta, com parede ilustrada de árvores, girafa e leão" loading="lazy" width="658" height="414"></div>
         {mascot}
       </div>
     </div>
     <div class="kids-cards">{cards}</div>
   </div>
+  <span class="kids-sun" aria-hidden="true"></span>
+  <svg class="kids-hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 160V70C160 10 320 10 480 60S800 120 960 60 1280 0 1440 50V160z" fill="#a8dd8f"/>
+    <path d="M0 160V100C200 60 380 70 560 100S920 140 1100 100 1340 70 1440 90V160z" fill="#7cc46b"/>
+  </svg>
   <svg class="kids-wave kids-wave--bottom" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0v40c120 30 240 30 360 0s240-30 360 0 240 30 360 0 240-30 360 0V0z"/></svg>
 </section>"""
 

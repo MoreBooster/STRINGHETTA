@@ -508,16 +508,6 @@ def home():
   <p style="text-align:center;margin-top:40px"><a class="btn btn--outline" href="/procedimentos/">Ver todos os procedimentos ↗</a></p>
 </div></section>
 
-<section class="section"><div class="container">
-  <div class="section-head reveal"><span class="eyebrow">Como funciona</span><h2>Sua jornada na Stringhetta</h2></div>
-  <div class="steps-line" aria-hidden="true"><span></span></div>
-  <div class="grid grid-3 steps">
-    <div class="step reveal"><h3>Avaliação</h3><p>Conversamos sobre seus objetivos e fazemos uma análise completa.</p></div>
-    <div class="step reveal"><h3>Planejamento</h3><p>Montamos um plano sob medida, com prazos e valores claros.</p></div>
-    <div class="step reveal"><h3>Tratamento e acompanhamento</h3><p>Realizamos o procedimento e acompanhamos sua evolução de perto.</p></div>
-  </div>
-</div></section>
-
 {kids_section()}
 
 {testimonials_section()}

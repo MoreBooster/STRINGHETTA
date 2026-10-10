@@ -459,7 +459,7 @@ def home():
       <p>Nossa missão é realçar a sua beleza natural e oferecer a melhor experiência de autocuidado que você merece.</p>
     </div>
     <a class="strip-card strip-card--image reveal" href="/procedimentos/">
-      <img src="{placeholder('Procedimentos', 600, 600)}" alt="Procedimentos" width="600" height="600">
+      <img src="/assets/img/procedimentos-sorriso.jpg" alt="Paciente sorrindo após tratamento na clínica" width="800" height="800">
       <span class="strip-label">Nossos procedimentos ↗</span>
     </a>
     <div class="strip-card strip-card--light reveal">

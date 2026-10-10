@@ -428,7 +428,7 @@ def kids_section():
         <a class="btn kids-btn" href="{wa_link("Olá! Quero saber mais sobre o Espaço Kids.")}" target="_blank" rel="noopener">Quero saber mais ↗</a>
       </div>
       <div class="kids-visual reveal">
-        <div class="kids-photo"><img src="/assets/img/espaco-kids.jpg" alt="Sala do Espaço Kids da Clínica Stringhetta, com parede ilustrada de árvores, girafa e leão" loading="lazy" width="658" height="414"></div>
+        <div class="kids-photo"><video data-autoplay src="/assets/video/espaco-kids.mp4" poster="/assets/video/espaco-kids.jpg" muted autoplay loop playsinline preload="metadata" aria-label="Tour pela sala do Espaço Kids da Clínica Stringhetta" width="720" height="720"></video></div>
         {mascot}
       </div>
     </div>

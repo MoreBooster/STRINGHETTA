@@ -735,3 +735,8 @@ section[id] { scroll-margin-top: 84px; }
 .stat--kids:hover span { color: var(--gold-3); text-decoration: underline; text-underline-offset: 3px; }
 .stat--kids:hover svg { transform: scale(1.1) rotate(-6deg); }
 @media (prefers-reduced-motion: reduce) { .stat-icon svg { animation: none; } }
+
+/* Botão flutuante do WhatsApp em verde */
+.whats-float { background: #25d366; color: #fff; box-shadow: 0 10px 28px rgba(37,211,102,.45); }
+.whats-float:hover { background: #1ebe5a; }
+.whats-float::before { border-color: #25d366; }

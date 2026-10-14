@@ -858,3 +858,12 @@ section[id] { scroll-margin-top: 84px; }
 }
 .ba-range:focus-visible + * , .ba-slider:focus-within { outline: 3px solid var(--gold); outline-offset: 4px; }
 .ba-note { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 18px; }
+
+/* Submenu de procedimentos legível também sobre o hero */
+.header .submenu { align-items: stretch !important; text-align: left; min-width: 270px; }
+.header .submenu a,
+.header--overlay:not(.is-scrolled) .nav .submenu a {
+  color: var(--ink) !important; filter: none !important; text-shadow: none !important;
+  white-space: nowrap; font-size: .9rem;
+}
+.header .submenu a:hover { color: var(--gold-3) !important; }

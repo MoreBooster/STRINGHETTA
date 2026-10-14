@@ -340,3 +340,53 @@ if (kidsShapes.length && !reduceMotion) {
   window.addEventListener("scroll", () => requestAnimationFrame(moveShapes), { passive: true });
   moveShapes();
 }
+
+// Comparador antes e depois: arrastar (mouse/toque), clicar ou usar o teclado
+document.querySelectorAll(".ba-slider").forEach((slider) => {
+  const range = slider.querySelector(".ba-range");
+  const set = (pct) => {
+    const v = clamp(pct, 0, 100);
+    slider.style.setProperty("--pos", `${v}%`);
+    range.value = v;
+    slider.dataset.near = v < 12 ? "left" : v > 88 ? "right" : "";
+  };
+  const fromEvent = (ev) => {
+    const r = slider.getBoundingClientRect();
+    set(((ev.clientX - r.left) / r.width) * 100);
+  };
+  let dragging = false;
+  slider.addEventListener("pointerdown", (ev) => {
+    dragging = true;
+    slider.classList.add("dragging");
+    slider.setPointerCapture(ev.pointerId);
+    fromEvent(ev);
+  });
+  slider.addEventListener("pointermove", (ev) => { if (dragging) fromEvent(ev); });
+  const stop = () => { dragging = false; slider.classList.remove("dragging"); };
+  slider.addEventListener("pointerup", stop);
+  slider.addEventListener("pointercancel", stop);
+  range.addEventListener("input", () => set(Number(range.value)));
+
+  // Dica de uso: ao aparecer na tela, a barra faz um "vai e volta"
+  if (!reduceMotion) {
+    const hint = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      hint.disconnect();
+      const frames = [[0, 50], [500, 22], [1100, 78], [1700, 50]];
+      const t0 = performance.now();
+      const step = (now) => {
+        if (dragging) return;
+        const t = now - t0;
+        let i = 0;
+        while (i < frames.length - 2 && t > frames[i + 1][0]) i++;
+        const [ta, va] = frames[i], [tb, vb] = frames[i + 1];
+        const k = clamp((t - ta) / (tb - ta), 0, 1);
+        const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        set(va + (vb - va) * e);
+        if (t < frames[frames.length - 1][0]) requestAnimationFrame(step);
+      };
+      setTimeout(() => requestAnimationFrame(step), 400);
+    }, { threshold: 0.5 });
+    hint.observe(slider);
+  }
+});

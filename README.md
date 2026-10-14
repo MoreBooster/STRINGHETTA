@@ -38,6 +38,8 @@ Paleta creme e dourado, com variáveis no topo de `assets/css/style.css`, e font
 
 - **Fotos dos procedimentos:** salve em `assets/img/` e adicione `"image": "/assets/img/nome.jpg"` (e opcionalmente `"image_alt"`) ao procedimento no `build.py`. A foto aparece no card da home, na página de procedimentos e na página do próprio procedimento.
 
+- **Antes e depois:** salve o par em `assets/img/resultados/<slug>-antes.jpg` e `<slug>-depois.jpg` (mesmo enquadramento, de preferência 900×1125). A página do procedimento mostra automaticamente o comparador com barra arrastável.
+
 As imagens em `assets/img/*.svg` são provisórias. Substitua pelas fotos reais (de preferência `.webp`)
 mantendo o mesmo nome, ou altere o caminho na função `placeholder()` do `build.py`.
 

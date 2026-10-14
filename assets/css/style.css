@@ -823,3 +823,38 @@ section[id] { scroll-margin-top: 84px; }
   }
 }
 .kids-photo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ===== Comparador antes e depois (barra arrastável) ===== */
+.results .section-head { margin-bottom: 40px; }
+.ba-slider {
+  --pos: 50%;
+  position: relative; max-width: 560px; margin: 0 auto; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: var(--radius); box-shadow: var(--shadow); background: var(--cream-2);
+  cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+}
+.ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-img--before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-handle {
+  position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px;
+  background: var(--ivory); box-shadow: 0 0 12px rgba(42,32,21,.35); pointer-events: none;
+}
+.ba-knob {
+  position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--gold); color: var(--ivory); display: grid; place-items: center;
+  border: 3px solid var(--ivory); box-shadow: 0 8px 20px rgba(42,32,21,.3); transition: transform .2s;
+}
+.ba-knob svg { width: 24px; height: 24px; }
+.ba-slider:hover .ba-knob, .ba-slider.dragging .ba-knob { transform: translate(-50%, -50%) scale(1.1); }
+.ba-tag {
+  position: absolute; top: 16px; z-index: 2; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 999px; background: rgba(255,251,244,.92); color: var(--ink); pointer-events: none;
+  transition: opacity .25s;
+}
+.ba-tag--before { left: 16px; }
+.ba-tag--after { right: 16px; background: var(--gold); color: var(--ivory); }
+.ba-slider[data-near="left"] .ba-tag--before, .ba-slider[data-near="right"] .ba-tag--after { opacity: 0; }
+.ba-range {
+  position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; clip: rect(0 0 0 0);
+}
+.ba-range:focus-visible + * , .ba-slider:focus-within { outline: 3px solid var(--gold); outline-offset: 4px; }
+.ba-note { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 18px; }

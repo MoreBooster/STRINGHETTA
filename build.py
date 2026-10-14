@@ -560,6 +560,27 @@ def procedures_index():
     return page("Procedimentos", "Todos os procedimentos de estética facial e odontologia da Clínica Stringhetta.", body, "procedimentos")
 
 
+def before_after(slug, title):
+    """Comparador antes/depois com barra arrastável (usa assets/img/resultados/<slug>-antes|depois.jpg)."""
+    base = ROOT / "assets" / "img" / "resultados"
+    if not ((base / f"{slug}-antes.jpg").exists() and (base / f"{slug}-depois.jpg").exists()):
+        return ""
+    t = escape(title.lower())
+    return f"""<section class="section results"><div class="container">
+  <div class="section-head reveal"><span class="eyebrow">Resultados</span><h2>Antes e depois</h2>
+  <p>Arraste a barra para comparar o resultado real de uma paciente da clínica.</p></div>
+  <div class="ba-slider reveal" style="--pos: 50%">
+    <img class="ba-img ba-img--after" src="/assets/img/resultados/{slug}-depois.jpg" alt="Depois do tratamento de {t}" width="900" height="1125" loading="lazy" draggable="false">
+    <img class="ba-img ba-img--before" src="/assets/img/resultados/{slug}-antes.jpg" alt="Antes do tratamento de {t}" width="900" height="1125" loading="lazy" draggable="false">
+    <span class="ba-tag ba-tag--before">Antes</span>
+    <span class="ba-tag ba-tag--after">Depois</span>
+    <span class="ba-handle" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+    <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois de {t}">
+  </div>
+  <p class="ba-note">Resultados podem variar de pessoa para pessoa.</p>
+</div></section>"""
+
+
 def procedure_page(p):
     benefits = "".join(f"<li>{escape(b)}</li>" for b in p["benefits"])
     faq = "".join(f"<details><summary>{escape(q)}</summary><p>{escape(a)}</p></details>" for q, a in p["faq"])
@@ -585,6 +606,8 @@ def procedure_page(p):
     <a class="btn btn--whats" href="{wa_link(msg)}" target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
   </div>
 </div></section>
+
+{before_after(p['slug'], p['title'])}
 
 <section class="section section--alt"><div class="container">
   <div class="section-head reveal"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas sobre {escape(p['title'].lower())}</h2></div>

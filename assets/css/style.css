@@ -867,3 +867,5 @@ section[id] { scroll-margin-top: 84px; }
   white-space: nowrap; font-size: .9rem;
 }
 .header .submenu a:hover { color: var(--gold-3) !important; }
+.dev-credit { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,164,100,.45); }
+.dev-credit:hover { color: var(--cream); }

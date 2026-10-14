@@ -200,7 +200,7 @@ def footer():
   </div>
   <div class="footer-bottom">
     <span>© <span data-year></span> {CONFIG['name']}. Todos os direitos reservados.</span>
-    <span>Desenvolvido por Mathews Laragnoit</span>
+    <span>Desenvolvido por <a class="dev-credit" href="https://thews.com.br" target="_blank" rel="noopener">Mathews Laragnoit</a></span>
   </div>
 </div></footer>
 <a class="whats-float" href="{wa_link()}" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">{WHATS_ICON}</a>

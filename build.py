@@ -129,6 +129,9 @@ VIDEOS = [
     {"file": "video-4", "label": "Paciente após o procedimento"},
 ]
 
+AST = ('<svg class="ast" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+       '<path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/></svg>')
+
 WHATS_ICON = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.3.6 4.5 1.8 6.4L3 29l7.2-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.7 12.7-12.6C28.7 8.6 23 3 16 3zm0 23.2c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.5C5.2 9.8 10 5.1 16 5.1s10.8 4.7 10.8 10.5S22 26.2 16 26.2zm5.9-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.2 1.4 3.4 2.4 3.6 5.7 5c2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.4z"/></svg>'
 
 
@@ -263,7 +266,7 @@ def units_section():
         blocks += f"""<div class="unit reveal">
     <iframe loading="lazy" title="Mapa – {escape(u['name'])}" src="https://maps.google.com/maps?q={q}&output=embed"></iframe>
     <div class="unit-body">
-      <span class="location-mark" aria-hidden="true">✳</span>
+      <span class="location-mark" aria-hidden="true">{AST}</span>
       <h3>{escape(u['name'])}</h3>
       <p>{escape(u['address'])}<br>{escape(u['city'])}</p>
       <p>{escape(CONFIG['hours'])}</p>
@@ -300,7 +303,7 @@ def testimonials_section():
 
 
 def marquee(items, reverse=False):
-    row = "".join(f"<span>{escape(t)}</span><i>✳</i>" for t in items)
+    row = "".join(f"<span>{escape(t)}</span><i>{AST}</i>" for t in items)
     cls = " marquee--reverse" if reverse else ""
     return f'''<div class="marquee{cls}" aria-hidden="true"><div class="marquee-track">{row}{row}{row}</div></div>'''
 
@@ -475,7 +478,7 @@ def home():
       <h3>Avaliação personalizada</h3>
       <p>Unidades Tatuapé e Moema</p>
       <a class="link-arrow" href="{wa_link()}" target="_blank" rel="noopener">Agendar ↗</a>
-      <span class="strip-mark" aria-hidden="true">✳</span>
+      <span class="strip-mark" aria-hidden="true">{AST}</span>
     </div>
   </div>
 </section>
@@ -518,7 +521,7 @@ def home():
 </div></section>
 
 <section class="manifesto"><div class="container">
-  <span class="manifesto-mark" data-spin aria-hidden="true">✳</span>
+  <span class="manifesto-mark" data-spin aria-hidden="true">{AST}</span>
   <p class="scrub-text">Acreditamos que a beleza mais bonita é a que já existe em você. Nosso trabalho é revelar, com técnica, delicadeza e cuidado em cada detalhe.</p>
 </div></section>
 
@@ -549,7 +552,7 @@ def procedures_index():
         sections += f"""<div style="margin-bottom:56px"><h2 class="reveal" style="font-size:1.8rem">{label}</h2>
   <div class="grid grid-3">{cards}</div></div>"""
     body = f"""
-<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">{AST}</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Procedimentos</div>
   <h1>Procedimentos</h1>
   <p>Conheça os tratamentos de estética facial e odontologia disponíveis na clínica.</p>
@@ -587,7 +590,7 @@ def procedure_page(p):
     related = "".join(card(r) for r in [r for r in PROCEDURES if r["category"] == p["category"] and r is not p][:3])
     msg = p.get("wa", f"Olá! Gostaria de saber mais sobre {p['title']}.")
     body = f"""
-<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">{AST}</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / <a href="/procedimentos/">Procedimentos</a> / {escape(p['title'])}</div>
   <span class="eyebrow">{CATEGORIES[p['category']]}</span>
   <h1>{escape(p['title'])}</h1>
@@ -630,7 +633,7 @@ def contact():
     options = "".join(f"<option>{escape(p['title'])}</option>" for p in PROCEDURES)
     units = "".join(f"<option>{escape(u['name'])}</option>" for u in CONFIG["units"])
     body = f"""
-<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">✳</span><div class="container">
+<section class="page-hero"><span class="page-hero-mark" data-spin aria-hidden="true">{AST}</span><div class="container">
   <div class="breadcrumb"><a href="/">Início</a> / Contato</div>
   <h1>Fale com a gente</h1>
   <p>Agende sua avaliação ou tire suas dúvidas. Respondemos rapidinho!</p>
@@ -674,6 +677,9 @@ def not_found():
 
 
 def write(rel, content):
+    if rel.endswith(".html"):
+        for ch in "↗↓←→":
+            content = content.replace(ch, ch + "\ufe0e")
     path = ROOT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")

@@ -45,7 +45,7 @@ p { margin: 0 0 1em; }
   display: inline-flex; align-items: center; gap: 10px; font-size: .74rem; letter-spacing: .22em;
   text-transform: uppercase; color: var(--gold-2); font-weight: 600; margin-bottom: 1.1em;
 }
-.eyebrow::before { content: "✳"; letter-spacing: 0; font-size: .95rem; }
+.eyebrow::before { content: ""; width: .95rem; height: .95rem; flex-shrink: 0; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1'/%3E%3C/svg%3E") center / contain no-repeat; }
 .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
 .section-head p, .center p { color: var(--muted); }
 
@@ -203,7 +203,7 @@ p { margin: 0 0 1em; }
 .split img { border-radius: var(--radius); aspect-ratio: 5/4; object-fit: cover; width: 100%; }
 .checklist { list-style: none; padding: 0; margin: 0 0 1.8em; }
 .checklist li { padding-left: 34px; position: relative; margin-bottom: 12px; }
-.checklist li::before { content: "✳"; position: absolute; left: 0; top: 0; color: var(--gold); font-size: 1.05rem; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: .3em; width: 1.05rem; height: 1.05rem; background: var(--gold); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1'/%3E%3C/svg%3E") center / contain no-repeat; }
 
 /* Steps */
 .steps { counter-reset: step; }
@@ -869,3 +869,8 @@ section[id] { scroll-margin-top: 84px; }
 .header .submenu a:hover { color: var(--gold-3) !important; }
 .dev-credit { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(201,164,100,.45); }
 .dev-credit:hover { color: var(--cream); }
+
+/* Asterisco em SVG (substitui o caractere ✳, que vira emoji no iPhone) */
+.ast { display: inline-block; width: 1em; height: 1em; vertical-align: -.12em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.manifesto-mark .ast, .page-hero-mark .ast, .location-mark .ast { stroke-width: 1.4; }
+.marquee-track i .ast { width: .9em; height: .9em; }

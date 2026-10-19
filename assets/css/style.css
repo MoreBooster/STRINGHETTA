@@ -874,3 +874,17 @@ section[id] { scroll-margin-top: 84px; }
 .ast { display: inline-block; width: 1em; height: 1em; vertical-align: -.12em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .manifesto-mark .ast, .page-hero-mark .ast, .location-mark .ast { stroke-width: 1.4; }
 .marquee-track i .ast { width: .9em; height: .9em; }
+
+/* Header no mobile: respiro no topo (inclui a área do notch/barra de status) */
+@media (max-width: 960px) {
+  .header .container,
+  .header--overlay:not(.is-scrolled) .container {
+    align-items: center; min-height: 76px;
+    padding-top: calc(12px + env(safe-area-inset-top, 0px)); padding-bottom: 12px;
+  }
+  .nav { inset: calc(77px + env(safe-area-inset-top, 0px)) 0 auto 0; max-height: calc(100vh - 77px); }
+  .hero { padding-top: calc(130px + env(safe-area-inset-top, 0px)); }
+}
+@media (max-width: 960px) {
+  .header--overlay:not(.is-scrolled) .nav a:not(.btn) { filter: none; text-shadow: none; color: var(--ink); }
+}

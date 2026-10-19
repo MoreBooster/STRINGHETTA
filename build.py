@@ -223,7 +223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 }})(window,document,'script','dataLayer','GTM-WKVLQ7HJ');</script>
 <!-- End Google Tag Manager -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{escape(full_title)}</title>
 <meta name="description" content="{escape(description)}">
 <meta property="og:title" content="{escape(full_title)}">
